@@ -71,13 +71,14 @@ namespace ChildDevelopment.Models
             while (rdr.Read())
             {
                 int id = rdr.GetInt32(0);
-                string name = rdr.GetString(1)
-                bool gender = rdr.GetBool(2);
+                string name = rdr.GetString(1);
+                bool gender = rdr.GetBoolean(2);
                 int weight = rdr.GetInt32(3);
                 int height = rdr.GetInt32(4);
                 DateTime birthdate = rdr.GetDateTime(5);
-                bool breastfeeding = rdr.GetBool(6);
-                Child newChild = new Child(name, gender, weight, height, birthdate, breastfeeding, id);
+                bool breastfeeding = rdr.GetBoolean(6);
+
+               Child newChild = new Child(name, gender, weight, height, birthdate, breastfeeding, id);
                 allChilds.Add(newChild);
             }
             conn.Close();
@@ -109,7 +110,7 @@ namespace ChildDevelopment.Models
             }
         }
 
-         public static Client Find(int id)
+         public static Child Find(int Id)
         {
             MySqlConnection conn = DB.Connection();
             conn.Open();
@@ -119,26 +120,26 @@ namespace ChildDevelopment.Models
 
             MySqlParameter childId = new MySqlParameter();
             childId.ParameterName = "@childId";
-            childId.Value = id;
+            childId.Value = Id;
             cmd.Parameters.Add(childId);
 
             var rdr = cmd.ExecuteReader() as MySqlDataReader;
             int id = 0;
             string name = "";
-            bool gender = 0;
+            bool gender = false;
             int weight = 0;
             int height = 0;
-            DateTime birthdate = new DateTime;
-            bool breastfeeding = 0;
+            DateTime birthdate = new DateTime();
+            bool breastfeeding = false;
             while (rdr.Read())
             {
-                int id = rdr.GetInt32(0);
-                string name = rdr.GetString(1);
-                bool gender = rdr.GetBool(2);
-                int weight = rdr.GetInt32(3);
-                int height = rdr.GetInt32(4);
-                DateTime birthdate = rdr.GetDateTime(5);
-                bool breastfeeding = rdr.GetBool(6);
+                id = rdr.GetInt32(0);
+                name = rdr.GetString(1);
+                gender = rdr.GetBoolean(2);
+                weight = rdr.GetInt32(3);
+                height = rdr.GetInt32(4);
+                birthdate = rdr.GetDateTime(5);
+                breastfeeding = rdr.GetBoolean(6);
             }
             Child newChild = new Child(name, gender, weight, height, birthdate, breastfeeding, id);
 

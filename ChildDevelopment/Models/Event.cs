@@ -73,7 +73,7 @@ namespace ChildDevelopment.Models
 
             var cmd = conn.CreateCommand() as MySqlCommand;
             cmd.CommandText = @"SELECT * FROM events WHERE id = @eventId;";
-            cmd.Parameters.AddWithValue("@eventId", this._id);
+            cmd.Parameters.AddWithValue("@eventId", Id);
 
             var rdr = cmd.ExecuteReader() as MySqlDataReader;
             int id = 0;
@@ -120,7 +120,7 @@ namespace ChildDevelopment.Models
                 bool nameEquality = (this.GetName() == newEvent.GetName());
                 return (idEquality && nameEquality);
             }
-
+        }
              public override int GetHashCode()
         {
             return this.GetName().GetHashCode();
