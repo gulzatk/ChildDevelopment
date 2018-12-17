@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 17, 2018 at 08:53 PM
+-- Generation Time: Dec 17, 2018 at 11:35 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.0.15
 
@@ -25,11 +25,12 @@ USE `child_development`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `childs`
+-- Table structure for table `children`
 --
 
-CREATE TABLE `childs` (
+CREATE TABLE `children` (
   `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `gender` tinyint(1) NOT NULL,
   `weight` int(11) NOT NULL,
   `height` int(11) NOT NULL,
@@ -62,13 +63,33 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `name`) VALUES
+(1, 'hold_head'),
+(2, 'roll_over'),
+(3, 'first_teeth'),
+(4, 'sit'),
+(5, 'crawl'),
+(6, 'walk'),
+(7, 'first_words'),
+(8, 'self_feeding'),
+(9, 'make_believe'),
+(10, 'two_word_sentences'),
+(11, 'potty_trained'),
+(12, 'dresses_self'),
+(13, 'tell_story'),
+(14, 'read_write');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `childs`
+-- Indexes for table `children`
 --
-ALTER TABLE `childs`
+ALTER TABLE `children`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -88,9 +109,9 @@ ALTER TABLE `events`
 --
 
 --
--- AUTO_INCREMENT for table `childs`
+-- AUTO_INCREMENT for table `children`
 --
-ALTER TABLE `childs`
+ALTER TABLE `children`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `child_events`
@@ -101,7 +122,7 @@ ALTER TABLE `child_events`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
