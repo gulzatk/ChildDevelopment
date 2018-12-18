@@ -1,11 +1,11 @@
+@using ChildDevelopment.Models;
 
 
-
-@if(@Model.GetName() == "null")
+@if(@Model.GetName() == "none")
 {
     <h2>This user name could not be found. Click <a href="/"> here </a> to try again. </h2>
 }
-else if (@Model.GetPassword() == "null")
+else if (@Model.GetPassword() == "none")
 {
     <h2>Wrong password, Click <a href="/"> here </a> to try again</h2>
 }
@@ -13,7 +13,7 @@ else if (@Model.GetPassword() == "null")
 else
 {
     <h2>Thank you for logging in @Model.GetName().</h2>
-    <h3><a href="/children/index/@Model.GetId()">Click to continue to your account</a></h3>
+    <h3><a href="/children/index">Click to continue to your account</a></h3>
 
 }
 <h4><a href="/">Back home</a></h4>
