@@ -9,19 +9,14 @@ namespace ChildDevelopment.Controllers
         [HttpGet("/children")]
         public ActionResult Index()
         {
-        return View();
+            List<Child> children = Child.GetAll();
+            return View(children);
         }
 
-        [HttpGet("/children/account")]
-        public ActionResult Account()
-        {
-        return View();
-        }
-
-        [HttpGet("/children/login")]
-        public ActionResult Login()
-        {
-        return View();
+        [HttpGet("/children/new")]
+        public ActionResult New()
+        {   
+            return View();
         }
 
     }

@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+<h2>Add a new child</h2>
+<form action = "/children" method = "post">
+
+    <label for = "name">Name:</label>
+    <input type = "text" name = "name"><br><br>
+
+<label for="gender">Gender:</label>
+  <select id="gender" name="gender">
+    <option value=false>boy</option>
+    <option value=true>girl</option>
+</select><br><br>
+
+    <label for = "height">Height(in inches):</label>
+    <input type = "num" name = "height"><br><br>
+
+    <label for = "weight">Weight(in ounces):</label>
+    <input type = "num" name = "weight"><br><br>
+
+<label for="breastfeeding">Was the child breastfed?:</label>
+  <select id="breastfeeding" name="breastfeeding">
+    <option value=true>Yes</option>    
+    <option value=false>No</option>
+
+</select><br><br>
+
+    <label for = "birthdate">Birthdate:</label>
+    <input type = "date" name = "birthdate"><br><br>
+
+
+    <button class="btn btn-sm btn-primary" type = "submit">Add your child</button>
+</form>
+
+<h4><a href="/">Back home</a></h4>
+</div>
