@@ -15,8 +15,8 @@ namespace ChildDevelopment.Models
         {
             _name = name;
             _password = password;
-            _childId = childId; 
-           
+            _childId = childId;
+
         }
 
         public string GetName()
@@ -61,9 +61,9 @@ namespace ChildDevelopment.Models
                 if (p.GetName() == name)
                 {
                     unique = true;
-                } 
+                }
             }
-            return unique;        
+            return unique;
         }
 
          public static Patron FindByName(string inputName, string inputPassword, int inputChildId)
@@ -108,9 +108,9 @@ namespace ChildDevelopment.Models
             while (rdr.Read())
             {
                 string name = rdr.GetString(0);
-                string password = rdr.GetString(1);   
+                string password = rdr.GetString(1);
                 int childId = rdr.GetInt32(2);
-           
+
                Patron newPatron = new Patron(name, password, childId);
                 allPatrons.Add(newPatron);
             }
@@ -152,7 +152,7 @@ namespace ChildDevelopment.Models
                 MySqlConnection conn = DB.Connection();
                 conn.Open();
                 var cmd = conn.CreateCommand() as MySqlCommand;
-                cmd.CommandText = @"UPDATE login SET name = @inputName AND password = @inputPassword WHERE name = @searchName;";
+                cmd.CommandText = @"UPDATE login SET username = @inputName AND password = @inputPassword WHERE name = @searchName;";
                 cmd.Parameters.AddWithValue("@name", inputName);
                 cmd.Parameters.AddWithValue("@inputPassword", inputPassword);
                 cmd.Parameters.AddWithValue("@searchName", this._name);
