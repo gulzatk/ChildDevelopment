@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 17, 2018 at 11:35 PM
--- Server version: 5.6.35
--- PHP Version: 7.0.15
+-- Generation Time: Dec 19, 2018 at 08:46 AM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -35,8 +35,16 @@ CREATE TABLE `children` (
   `weight` int(11) NOT NULL,
   `height` int(11) NOT NULL,
   `birthdate` date NOT NULL,
-  `brestfeeding` tinyint(1) NOT NULL
+  `breastfeeding` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `children`
+--
+
+INSERT INTO `children` (`id`, `name`, `gender`, `weight`, `height`, `birthdate`, `breastfeeding`) VALUES
+(3, 'Keivan', 0, 300, 36, '0001-01-01', 1),
+(4, 'Keivan', 0, 300, 36, '0001-01-01', 1);
 
 -- --------------------------------------------------------
 
@@ -50,6 +58,20 @@ CREATE TABLE `child_events` (
   `event_id` int(11) NOT NULL,
   `time` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `child_events`
+--
+
+INSERT INTO `child_events` (`id`, `child_id`, `event_id`, `time`) VALUES
+(20, 3, 1, '2016-11-11'),
+(21, 3, 2, '2016-12-20'),
+(22, 3, 3, '2017-01-13'),
+(23, 3, 4, '2017-03-03'),
+(24, 4, 1, '2016-11-11'),
+(25, 4, 2, '2016-12-20'),
+(26, 4, 3, '2017-01-13'),
+(27, 4, 4, '2017-03-03');
 
 -- --------------------------------------------------------
 
@@ -82,6 +104,25 @@ INSERT INTO `events` (`id`, `name`) VALUES
 (13, 'tell_story'),
 (14, 'read_write');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `child_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`username`, `password`, `child_id`) VALUES
+('Kaveh', '234', 0);
+
 --
 -- Indexes for dumped tables
 --
@@ -104,6 +145,11 @@ ALTER TABLE `child_events`
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
+  -- Indexes for table `events`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`username`);
+
 --
 -- AUTO_INCREMENT for dumped tables
 --
@@ -112,17 +158,20 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `children`
 --
 ALTER TABLE `children`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `child_events`
 --
 ALTER TABLE `child_events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
