@@ -1,7 +1,38 @@
-@{
-  Layout = "_Layout";
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ChildDevelopment</title>
+    <link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="~/js/scripts.js"></script>
+  </head>
+  <body>
+<div class="container text-center">
+<h1>Child Development Timeline</h1>
+<hr>
 
-<div class="container">
-
-</div>
+<form action="/patrons/login" method="get">
+  <div class = "form-group row">
+      <div class="col col-md-3">
+        <label for="name">Enter a full name: </label>
+        <input class="form-control" id="name" name="name" type="text" required>
+      </div>
+      <div class="col col-md-3">
+        <label for="password">Password: </label>
+        <input class="form-control" id="password" name="password" type="password" required>
+      </div>
+  </div>
+  <div class = "row">
+    <div class="col-md-6">
+    <button class="btn btn-info" type="submit" formmethod="get">Login</button>
+    </div>
+    <div class="col-md-3">
+    <h3><a class="btn btn-primary" href="/patrons/account">Sign up</a></h3>
+    </div>
+  </div>
+  </div>
+</form>
+</body>
+</html>
