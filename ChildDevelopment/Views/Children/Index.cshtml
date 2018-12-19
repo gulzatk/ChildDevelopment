@@ -1,23 +1,54 @@
-@using System.Collections.Generic;
-@using ChildDevelopment.Models;
-@{
-  Layout = "_Layout";
-}
+<html>
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
 
-<h2>All kids</h2>
+    function drawChart() {
 
-@if(@Model.Count == 0)
-{
-  <h3>There are no children in the ChildDevelopment Database</h3>
-}
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Weeks');
+      data.addColumn('number', 'Current');
 
-else
-{
-  <ul>
-    @foreach(Child child in @Model)
-    {
-      <li><a href="/children/@child.GetId()/show">@child.GetName()</a></li>
+      data.addRows([
+        [1,  5],
+        [2,  6],
+        [3,  8],
+        [4,  11],
+        [5,  3],
+        [6,   1],
+        [7,   8],
+        [8,  5],
+        [9,  5],
+        [10, 3],
+        [11,  2],
+        [12,  12],
+        [13,  9],
+        [14,  5]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Child Development Timeline',
+          subtitle: 'in weeks'
+        },
+        width: 900,
+        height: 500,
+        axes: {
+          x: {
+            0: {side: 'bottom'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
     }
-  </ul>  
-}
-<h4><a href="/">Back home</a></h4>
+  </script>
+</head>
+<body>
+  <div id="line_top_x"></div>
+</body>
+</html>
