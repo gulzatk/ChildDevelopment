@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using ChildDevelopment;
+using System.Linq;
 
 namespace ChildDevelopment.Models
 {
@@ -169,25 +170,49 @@ namespace ChildDevelopment.Models
             }
         }
 
-          public List<Event> GetEvents()
+        //return only a list of events
+          public List<int> GetEvents()
+        {
+                 //get a list of event id's
+                MySqlConnection conn = DB.Connection();
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+                cmd.CommandText = @"SELECT event_id FROM child_events WHERE child_id = @childId;";
+                cmd.Parameters.AddWithValue("@childId", this._id);
+                MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+                List<int> event_ids = new List<int> { };
+                while (rdr.Read())
+                {
+                    
+                    int newEventId = rdr.GetInt32(0);
+                    Console.WriteLine(newEventId);
+                    event_ids.Add(newEventId);
+                }
+                    conn.Close();
+                if (conn != null)
+                {
+                    conn.Dispose();
+                }
+                return event_ids;
+        }
+        
+        //returns only a list of dates
+            public List<int> GetDates()
         {
             MySqlConnection conn = DB.Connection();
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT events.* FROM children
-                JOIN child_events ON (children.id = child_events.child_id)
-                JOIN events ON (child_events.event_id = events.id)
-                WHERE children.id = @childId;";
-                cmd.Parameters.AddWithValue("@childId", this._id);
+            cmd.CommandText = @"SELECT time FROM child_events WHERE child_id = @childId;";
+            cmd.Parameters.AddWithValue("@childId", this._id);
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-            List<Event> events = new List<Event> { };
+            List<int> events = new List<int> { };
             while (rdr.Read())
             {
-                int eventId = rdr.GetInt32(0);
-                string eventName = rdr.GetString(1);
-
-                Event newEvent = new Event(eventName, eventId);
-                events.Add(newEvent);
+                
+                DateTime newEvent = rdr.GetDateTime(0);
+                int difference = (int)Math.Round(((newEvent - _birthdate).TotalDays)/7);
+                events.Add(difference);
+                Console.WriteLine(difference);
             }
             conn.Close();
             if (conn != null)
@@ -196,6 +221,65 @@ namespace ChildDevelopment.Models
             }
             return events;
         }
+
+        //returns a dictionary of event id's and dates
+        // public Dictionary GetEventDates()
+        //     {
+        //         //initialize dictionary
+        //         Dictionary<int, DateTime> model = new Dictionary<int, DateTime>();
+                
+        //         //get a list of event date times
+        //         MySqlConnection conn = DB.Connection();
+        //         conn.Open();
+        //         MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+        //         cmd.CommandText = @"SELECT * time FROM child_events WHERE children.id = @childId;";
+        //         cmd.Parameters.AddWithValue("@childId", this._id);
+        //         MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+        //         List<DateTime> events = new List<DateTime> { };
+        //         while (rdr.Read())
+        //         {
+        //             DateTime newEvent = rdr.GetDateTime(4);
+        //             events.Add(newEvent);
+        //         }
+        //             conn.Close();
+        //         if (conn != null)
+        //         {
+        //             conn.Dispose();
+        //         }
+
+        //         //get a list of event id's
+        //         MySqlConnection conn = DB.Connection();
+        //         conn.Open();
+        //         MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+        //         cmd.CommandText = @"SELECT * event_id FROM child_events WHERE children.id = @childId;";
+        //         cmd.Parameters.AddWithValue("@childId", this._id);
+        //         MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+        //         List<int> event_ids = new List<int> { };
+        //         while (rdr.Read())
+        //         {
+        //             int newEventId = rdr.GetInt(4);
+        //             event_ids.Add(newEventId);
+        //         }
+        //             conn.Close();
+        //         if (conn != null)
+        //         {
+        //             conn.Dispose();
+        //         }
+
+        //         //insert event id's and event date times in a dictinoary 
+        //         for (i=0; i < events.Count; i+=1)
+        //         {
+        //             int thisId = event_ids[i];
+        //             DateTime thisEvent = events[i];
+        //             model.Add(thisId, thisEvent);
+        //         }
+                
+        //         return model; 
+
+        //     }
+
+
+
 
         public void Edit(string name, bool gender, int weight, int height, DateTime birthdate, bool breastfeeding)
         {

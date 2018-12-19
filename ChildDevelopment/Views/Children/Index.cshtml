@@ -11,12 +11,14 @@
       data.addColumn('number', 'Weeks');
       data.addColumn('number', 'Current');
 
-      data.addRows([
+
+
+      var array1=[
         [1,  5],
         [2,  6],
         [3,  8],
         [4,  11],
-        [5,  3],
+        [5,  10],
         [6,   1],
         [7,   8],
         [8,  5],
@@ -26,7 +28,9 @@
         [12,  12],
         [13,  9],
         [14,  5]
-      ]);
+      ];
+
+      data.addRows(@Model);
 
       var options = {
         chart: {
