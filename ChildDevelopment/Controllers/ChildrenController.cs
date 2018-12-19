@@ -70,5 +70,20 @@ namespace ChildDevelopment.Controllers
             return View();
         }
 
+           [HttpGet("/children/edit")]
+        public ActionResult Edit(int id)
+        {
+            Child child = Child.Find(id);
+            return View(child);
+        } 
+
+         [HttpPost("/children/{id}/edit")]
+        public ActionResult Update(string name, bool gender, int weight, int height, DateTime birthdate, bool breastfeeding, int id)
+        {
+            Child child = Child.Find(id);
+            child.Edit(name, gender, weight, height, birthdate, breastfeeding);
+            return View("Index", child);
+        } 
+
     }
 }

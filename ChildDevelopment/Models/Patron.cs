@@ -11,7 +11,7 @@ namespace ChildDevelopment.Models
         private string _password;
         private int _childId;
 
-        public Patron(string name, string password, int childId)
+        public Patron(string name, string password, int childId = 0)
         {
             _name = name;
             _password = password;
@@ -72,7 +72,7 @@ namespace ChildDevelopment.Models
             conn.Open();
 
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM login WHERE username = @name AND password = @password;";
+            cmd.CommandText = @"SELECT * FROM login WHERE username = @name AND password = @password AND child_id = @childId;";
 
             cmd.Parameters.AddWithValue("@name", inputName);
             cmd.Parameters.AddWithValue("@password", inputPassword);
@@ -128,7 +128,8 @@ namespace ChildDevelopment.Models
             MySqlConnection conn = DB.Connection();
             conn.Open();
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM login WHERE childId = '" + id + "';";
+            cmd.CommandText = @"SELECT * FROM login WHERE child_id = @childId;";
+            cmd.Parameters.AddWithValue("@childId", id);
             var rdr = cmd.ExecuteReader() as MySqlDataReader;
             while(rdr.Read())
             {

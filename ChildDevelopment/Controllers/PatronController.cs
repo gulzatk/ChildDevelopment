@@ -30,7 +30,7 @@ namespace ChildDevelopment.Controllers
         [HttpPost("/patrons/login")]
         public ActionResult New(string name, string password, int childId)
         {
-            List<Patron> patronList = Patron.GetAll();
+            List<Patron> patronList = Patron.GetAllByChildId(childId);
             Patron newPatron = new Patron(name, password, childId);
             if (!Patron.IsUnique(name))
             {
@@ -41,11 +41,7 @@ namespace ChildDevelopment.Controllers
             {
                 return RedirectToAction("Exist");
             }
- 
-            return View(newPatron);
 
-        } 
-
-
+        }
     }
 }
