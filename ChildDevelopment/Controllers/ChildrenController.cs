@@ -61,6 +61,7 @@ namespace ChildDevelopment.Controllers
             read_write};
             Child child = new Child(name,gender,weight,height,birth_date,breastfeeding);
             child.Save();
+
             int childId = child.GetId();
             for (int i=1;i<=14;i++)
             {
@@ -72,15 +73,18 @@ namespace ChildDevelopment.Controllers
  
             List<int> childEvents= child.GetEvents();
             List<int> childDates = child.GetDates();
-
-            int[][] elementArray= new int[14][];
-
+            string result = "[";
             for (int i=0; i<childEvents.Count; i+=1)
             {
-                elementArray[i] = new int[] {childEvents[i], childDates[i]};
+                result+= "[" + childEvents[i].ToString() + "," + childDates[i].ToString() + "]";
+                if (i<childEvents.Count-1)
+                {
+                    result+= ",";
+                }
             }
-            
-            return View(elementArray);
+            result += "]";
+
+            return View("Index",result);
         }
 
     }

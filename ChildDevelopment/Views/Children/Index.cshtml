@@ -8,27 +8,12 @@
     function drawChart() {
 
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Weeks');
-      data.addColumn('number', 'Current');
+      data.addColumn('number', 'Events');
+      data.addColumn('number', 'Current child');
 
 
 
-      var array1=[
-        [1,  5],
-        [2,  6],
-        [3,  8],
-        [4,  11],
-        [5,  10],
-        [6,   1],
-        [7,   8],
-        [8,  5],
-        [9,  5],
-        [10, 3],
-        [11,  2],
-        [12,  12],
-        [13,  9],
-        [14,  5]
-      ];
+
 
       data.addRows(@Model);
 
