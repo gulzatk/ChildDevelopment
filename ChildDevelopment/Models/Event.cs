@@ -102,12 +102,13 @@ namespace ChildDevelopment.Models
             cmd.Parameters.AddWithValue("@eventId", this._id);
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             List<int> events = new List<int> { };
+            DateTime aPastDate = new DateTime(2006, 1, 1);
             while (rdr.Read())
             {
 
                 DateTime newEvent = rdr.GetDateTime(0);
-                int weeks = (int)Math.Round(newEvent.Ticks/6048000000000);
-                events.Add(weeks);
+                int difference = (int)Math.Round(((newEvent - aPastDate).TotalDays)/7);
+                events.Add(difference);
 
             }
             conn.Close();
@@ -142,8 +143,10 @@ namespace ChildDevelopment.Models
             foreach (var childId in childIds)
             {
               Child child= Child.Find(childId);
-              int weeks = (int)Math.Round(child.GetBirthdate().Ticks/6048000000000);
-              birthdates.Add(weeks);
+              DateTime aPastDate = new DateTime(2006, 1, 1);
+              int difference = (int)Math.Round(((child.GetBirthdate() - aPastDate).TotalDays)/7);
+              birthdates.Add(difference);
+
             }
             return birthdates;
         }
@@ -156,12 +159,16 @@ namespace ChildDevelopment.Models
             List<int> eventDates= newEvent.GetDates();
             List<int> eventBirthdates = newEvent.GetBirthdates();
             int sum = 0;
-
             for (int i =0;i<eventDates.Count;i++)
             {
-              sum+=eventDates[i]-eventBirthdates[i];
+              sum+=eventDates[i];
+              sum-=eventBirthdates[i];
+            Console.WriteLine(eventBirthdates[i]);
             }
-            averages.Add((int)Math.Round(sum/eventDates.Count));
+              decimal division = sum/eventDates.Count;
+              int average = Decimal.ToInt32(Math.Round(division));
+              averages.Add(average);
+
           }
           return averages;
         }
