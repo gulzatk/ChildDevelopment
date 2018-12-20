@@ -49,23 +49,6 @@ namespace ChildDevelopment.Models
             return allEvents;
         }
 
-        // public void Save()
-        // {
-        //     MySqlConnection conn = DB.Connection();
-        //     conn.Open();
-        //     var cmd = conn.CreateCommand() as MySqlCommand;
-        //     cmd.CommandText = @"INSERT INTO events (name) VALUES (@name);";
-
-        //     cmd.Parameters.AddWithValue("@name", this._name);
-        //     cmd.ExecuteNonQuery();
-        //     _id = (int)cmd.LastInsertedId;
-        //     conn.Close();
-        //     if (conn != null)
-        //     {
-        //         conn.Dispose();
-        //     }
-        // }
-
          public static Event Find(int Id)
         {
             MySqlConnection conn = DB.Connection();
@@ -163,7 +146,7 @@ namespace ChildDevelopment.Models
             {
               sum+=eventDates[i];
               sum-=eventBirthdates[i];
-      
+
             }
               decimal division = sum/eventDates.Count;
               int average = Decimal.ToInt32(Math.Round(division));
@@ -173,19 +156,19 @@ namespace ChildDevelopment.Models
           return averages;
         }
 
-        //  public static void ClearAll()
-        // {
-        //     MySqlConnection conn = DB.Connection();
-        //     conn.Open();
-        //     var cmd = conn.CreateCommand() as MySqlCommand;
-        //     cmd.CommandText = @"DELETE FROM events;";
-        //     cmd.ExecuteNonQuery();
-        //     conn.Close();
-        //     if (conn != null)
-        //     {
-        //         conn.Dispose();
-        //     }
-        // }
+         public static void ClearAll()
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"DELETE FROM events;";
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+        }
 
        public override bool Equals(System.Object otherEvent)
         {
