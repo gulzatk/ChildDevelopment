@@ -1,202 +1,164 @@
-using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ChildDevelopment.Models;
 using System.Collections.Generic;
-using MySql.Data.MySqlClient;
-using ChildDevelopment;
+using System;
 
-namespace ChildDevelopment.Models
+namespace ChildDevelopment.Tests
 {
-    public class Patron
+  [TestClass]
+  public class PatronTest : IDisposable
+  {
+
+    public void Dispose()
     {
-        private string _name;
-        private string _password;
-        private int _childId;
-
-        public Patron(string name, string password, int childId)
-        {
-            _name = name;
-            _password = password;
-            _childId = childId;
-
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public string GetPassword()
-        {
-            return _password;
-        }
-
-        public int GetChildId()
-        {
-            return _childId;
-        }
-
-        public static void ClearAll()
-        {
-            MySqlConnection conn = DB.Connection();
-            conn.Open();
-            var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"DELETE FROM login;";
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            if (conn != null)
-            {
-                conn.Dispose();
-            }
-        }
-
-        public void Save()
-        {
-            MySqlConnection conn = DB.Connection();
-            conn.Open();
-            var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"INSERT INTO login (username, password, child_id) VALUES (@name, @password, @childId);";
-            cmd.Parameters.AddWithValue("@name", this._name);
-            cmd.Parameters.AddWithValue("@password", this._password);
-            cmd.Parameters.AddWithValue("@childId", this._childId);
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-            if (conn != null)
-            {
-                conn.Dispose();
-            }
-        }
-
-        public static bool IsUnique(string name)
-        {
-            bool unique = false;
-            List<Patron> newList = GetAll();
-            foreach(Patron p in newList)
-            {
-                if (p.GetName() == name)
-                {
-                    unique = true;
-                }
-            }
-            return unique;
-        }
-
-         public static Patron FindByName(string inputName, string inputPassword)
-        {
-            MySqlConnection conn = DB.Connection();
-            conn.Open();
-
-            var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM login WHERE username = @name AND password = @password;";
-
-            cmd.Parameters.AddWithValue("@name", inputName);
-            cmd.Parameters.AddWithValue("@password", inputPassword);
-            var rdr = cmd.ExecuteReader() as MySqlDataReader;
-            string name = "none";
-            string password = "none";
-            int childId = 0;
-            while (rdr.Read())
-            {
-               name = inputName;
-                password = rdr.GetString(1);
-                childId = rdr.GetInt32(2);
-            }
-            Patron newPatron = new Patron(name, password, childId);
-
-            conn.Close();
-            if (conn != null)
-            {
-                conn.Dispose();
-            }
-            return newPatron;
-        }
-
-           public static List<Patron> GetAll()
-        {
-            List<Patron> allPatrons = new List<Patron> {};
-            MySqlConnection conn = DB.Connection();
-            conn.Open();
-            var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM login;";
-            var rdr = cmd.ExecuteReader() as MySqlDataReader;
-            while (rdr.Read())
-            {
-                string name = rdr.GetString(0);
-                string password = rdr.GetString(1);
-                int childId = rdr.GetInt32(2);
-
-               Patron newPatron = new Patron(name, password, childId);
-                allPatrons.Add(newPatron);
-            }
-            conn.Close();
-            if (conn != null)
-            {
-                conn.Dispose();
-            }
-            return allPatrons;
-        }
-
-        public static List<Patron> GetAllByChildId(int id)
-        {
-            List<Patron> patron = new List<Patron> {};
-            MySqlConnection conn = DB.Connection();
-            conn.Open();
-            var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM login WHERE childId = '" + id + "';";
-            var rdr = cmd.ExecuteReader() as MySqlDataReader;
-            while(rdr.Read())
-            {
-            string patronName = rdr.GetString(0);
-            string patronPassword = rdr.GetString(1);
-            int childId = rdr.GetInt32(2);
-
-            Patron newPatron = new Patron(patronName, patronPassword, childId);
-            patron.Add(newPatron);
-            }
-            conn.Close();
-            if (conn != null)
-            {
-            conn.Dispose();
-            }
-            return patron;
-        }
-
-           public void EditByChildId(int newChildId)
-            {
-                MySqlConnection conn = DB.Connection();
-                conn.Open();
-                var cmd = conn.CreateCommand() as MySqlCommand;
-                cmd.CommandText = @"UPDATE login SET child_id = @childId WHERE username = @searchName;";
-                cmd.Parameters.AddWithValue("@childId", newChildId);
-                cmd.Parameters.AddWithValue("@searchName", this._name);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                if (conn != null)
-                {
-                conn.Dispose();
-                }
-            }
-
-
-       public override bool Equals(System.Object otherPatron)
-        {
-            if (!(otherPatron is Patron))
-            {
-                return false;
-            }
-            else
-            {
-                Patron newPatron = (Patron)otherPatron;
-                bool nameEquality = (this.GetName() == newPatron.GetName());
-                bool passwordEquality = (this.GetPassword() == newPatron.GetPassword());
-                bool childIdEquality = (this.GetChildId() == newPatron.GetChildId());
-
-
-                return (nameEquality && passwordEquality && childIdEquality);
-            }
-        }
-             public override int GetHashCode()
-        {
-            return this.GetName().GetHashCode();
-        }
+      Patron.ClearAll();
+      Child.ClearAll();
     }
+
+    public PatronTest()
+    {
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=child_development_test;";
+    }
+
+    [TestMethod]
+    public void PatronConstructor_CreatesInstanceOfPatron_Patron()
+    {
+      Patron newPatron = new Patron("Gulzat", "123", 0);
+      Assert.AreEqual(typeof(Patron), newPatron.GetType());
+    }
+
+    [TestMethod]
+    public void GetName_ReturnsName_String()
+    {
+      //Arrange
+      string Name = "Gulzat";
+      Patron newPatron = new Patron(Name, "123", 0);
+
+      //Act
+      string result = newPatron.GetName();
+
+      //Assert
+      Assert.AreEqual(Name, result);
+    }
+
+    [TestMethod]
+    public void GetPassword_ReturnsPassword_String()
+    {
+      //Arrange
+      string Password = "123";
+      Patron newPatron = new Patron("Gulzat", Password, 0);
+
+      //Act
+      string result = newPatron.GetPassword();
+
+      //Assert
+      Assert.AreEqual(Password, result);
+    }
+
+        [TestMethod]
+    public void GetChildId_ReturnsChildId_Int()
+    {
+      //Arrange
+      int ChildId = 1;
+      Patron newPatron = new Patron("Gulzat", "123", ChildId);
+
+      //Act
+      int result = newPatron.GetChildId();
+
+      //Assert
+      Assert.AreEqual(ChildId, result);
+    }
+
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_PatronList()
+    {
+      //Arrange
+      List<Patron> newList = new List<Patron> { };
+
+      //Act
+      List<Patron> result = Patron.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+
+    [TestMethod]
+    public void GetAll_ReturnsPatrons_PatronList()
+    {
+      //Arrange
+      string namen01 = "Gulzat";
+      string namen02 = "Kaveh";
+      Patron newPatron1 = new Patron(namen01, "123", 1);
+      newPatron1.Save();
+      Patron newPatron2 = new Patron(namen02, "123", 2);
+      newPatron2.Save();
+      List<Patron> newList = new List<Patron> { newPatron1, newPatron2 };
+
+      //Act
+      List<Patron> result = Patron.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+
+    [TestMethod]
+    public void FindByName_ReturnsCorrectPatronFromDatabase_Patron()
+    {
+      //Arrange
+      Patron testPatron = new Patron("Gulzat", "123", 1);
+      testPatron.Save();
+
+      //Act
+      Patron foundPatron = Patron.FindByName("Gulzat", "123");
+
+      //Assert
+      Assert.AreEqual(testPatron, foundPatron);
+    }
+
+    [TestMethod]
+    public void Equals_ReturnsTrueIfNamesAreTheSame_Bool()
+    {
+      // Arrange, Act
+      Patron firstPatron = new Patron("Gulzat", "123", 1);
+      Patron secondPatron = new Patron("Gulzat", "123", 1);
+
+      // Assert
+      Assert.AreEqual(firstPatron, secondPatron);
+    }
+
+    [TestMethod]
+    public void Save_SavesToDatabase_PatronList()
+    {
+      //Arrange
+      Patron testPatron = new Patron("Gulzat", "123", 1);
+
+      //Act
+      testPatron.Save();
+      List<Patron> result = Patron.GetAll();
+      List<Patron> testList = new List<Patron>{testPatron};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    // [TestMethod]
+    // public void Edit_UpdatesPatronInDatabase_String()
+    // {
+    //   //Arrange
+    //   Patron testPatron = new Patron("Gulzat", "123", 1);
+    //   testPatron.Save();
+    //   string newName = "Mow the lawn";
+    //   string newPassword = "123";
+
+    //   //Act
+    //   testPatron.Edit(newName, newPassword);
+    //   string result = testPatron.GetName();
+
+    //   //Assert
+    //   Assert.AreEqual(newName, result);
+    // }
+  }
 }
