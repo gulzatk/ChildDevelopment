@@ -1,10 +1,11 @@
-@{
+@using ChildDevelopment.Models;
   Layout = "_Layout";
 }
 
 <div class="container text-center">
-<h2>Fill out form for your Child Data Statistic.</h2>
-<form action = "/children/new" method = "post">
+<h2>Fill out data form for Child Statistic.</h2>
+<form action = "/children" method = "post">
+
 
     <label for = "name">Name:</label>
     <input type = "text" name = "name"><br><br>
@@ -33,7 +34,7 @@
 <hr>
  <div class="row">
    <div class="col-md-6">
-    <label for = "hold_head">hold_head:</label>
+        <label for = "hold_head">hold_head:</label>
     <input type = "date" name = "hold_head"><br><br>
 
     <label for = "roll_over">roll_over:</label>
@@ -79,7 +80,7 @@
    </div>
 
 
-    <button class="btn btn-lg btn-primary" type = "submit">Submit</button>
+    <button class="btn btn-lg btn-primary" type = "submit">Update</button>
 </form>
 
 </div>

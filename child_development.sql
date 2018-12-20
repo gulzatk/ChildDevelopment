@@ -148,7 +148,7 @@ ALTER TABLE `events`
   -- Indexes for table `events`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`child_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables

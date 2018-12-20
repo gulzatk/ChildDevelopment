@@ -8,9 +8,10 @@
 <h1>@Model.GetName() you successfully created your new account</h1>
 
 
-<div class="container">
-<h2>Add a new child</h2>
+<div class="container text-center">
+<h2>Modify child's data.</h2>
 <form action = "/children" method = "post">
+
 
     <label for = "name">Name:</label>
     <input type = "text" name = "name"><br><br>
@@ -36,7 +37,9 @@
     <option value=true>Yes</option>
     <option value=false>No</option>
 </select><br><br>
-
+<hr>
+ <div class="row">
+   <div class="col-md-6">
     <label for = "hold_head">hold_head:</label>
     <input type = "date" name = "hold_head"><br><br>
 
@@ -57,6 +60,8 @@
 
     <label for = "first_words">first_words:</label>
     <input type = "date" name = "first_words"><br><br>
+   </div>
+   <div class="col-md-6">
 
     <label for = "self_feeding">self_feeding:</label>
     <input type = "date" name = "self_feeding"><br><br>
@@ -78,10 +83,14 @@
 
     <label for = "read_write">read_write:</label>
     <input type = "date" name = "read_write"><br><br>
+   </div>
 
 
-    <button class="btn btn-sm btn-primary" type = "submit">Add your child</button>
+    <button class="btn btn-lg btn-primary" type = "submit">Update</button>
 </form>
+
+</div>
+
 
 <h4><a href="/">Back home</a></h4>
 </div>
