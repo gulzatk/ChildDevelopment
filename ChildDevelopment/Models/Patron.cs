@@ -152,8 +152,8 @@ namespace ChildDevelopment.Models
                 MySqlConnection conn = DB.Connection();
                 conn.Open();
                 var cmd = conn.CreateCommand() as MySqlCommand;
-                cmd.CommandText = @"UPDATE login SET username = @inputName AND password = @inputPassword WHERE name = @searchName;";
-                cmd.Parameters.AddWithValue("@name", inputName);
+                cmd.CommandText = @"UPDATE login SET username = @inputName AND password = @inputPassword WHERE username = @searchName;";
+                cmd.Parameters.AddWithValue("@inputName", inputName);
                 cmd.Parameters.AddWithValue("@inputPassword", inputPassword);
                 cmd.Parameters.AddWithValue("@searchName", this._name);
                 cmd.ExecuteNonQuery();
@@ -186,6 +186,20 @@ namespace ChildDevelopment.Models
              public override int GetHashCode()
         {
             return this.GetName().GetHashCode();
+        }
+
+        public static void ClearAll()
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"DELETE FROM login;";
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
         }
     }
 }

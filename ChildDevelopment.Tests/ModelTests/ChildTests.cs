@@ -13,7 +13,7 @@ namespace ChildDevelopment.Tests
     public void Dispose()
     {
       Child.ClearAll();
-      // Event.ClearAll();
+      Patron.ClearAll();
     }
 
     public ChildTest()
@@ -217,20 +217,75 @@ namespace ChildDevelopment.Tests
     }
 
     [TestMethod]
-    public void Edit_UpdatesChildInDatabase_String()
+    public void AddChildEvents_AddsChildEventsToChild_ChildEventsList()
     {
       //Arrange
-      Child testChild = new Child("Nancy", false, 8, 20, default(DateTime), false);
+      Child testChild = new Child("Nancy");
       testChild.Save();
-      string secondName = "Rover";
+      DateTime testDateTime = default(DateTime);
+      
 
       //Act
-      testChild.Edit(secondName, false, 8, 20, default(DateTime), false);
-      string result = Child.Find(testChild.GetId()).GetName();
+      testChild.AddChildEvents(2, testDateTime);
+      testChild.AddChildEvents(4, testDateTime);
+
+      
+      List<int> result = testChild.GetEvents();
+      List<int> testList = new List<int>{2, 4};
 
       //Assert
-      Assert.AreEqual(secondName, result);
+      CollectionAssert.AreEqual(testList, result);
     }
+
+        [TestMethod]
+    public void GetEvents_GetsEventsFromChildEvents_ChildEventsList()
+    {
+      //Arrange
+      Child testChild = new Child("Nancy");
+      testChild.Save();
+      DateTime testDateTime = default(DateTime);
+      
+
+      //Act
+      testChild.AddChildEvents(2, testDateTime);
+      testChild.AddChildEvents(4, testDateTime);
+      List<int> result = testChild.GetEvents();
+      List<int> testList = new List<int>{2, 4};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    // [TestMethod]
+    // public void GetDates_ReturnsChildsDates_List()
+    // {
+    //   //Arrange
+    
+
+
+    //   //Act
+
+
+
+    //   //Assert
+
+    // }
+
+    // [TestMethod]
+    // public void Edit_UpdatesChildInDatabase_String()
+    // {
+    //   //Arrange
+    //   Child testChild = new Child("Nancy", false, 8, 20, default(DateTime), false);
+    //   testChild.Save();
+    //   string secondName = "Rover";
+
+    //   //Act
+    //   testChild.Edit(secondName, false, 8, 20, default(DateTime), false);
+    //   string result = Child.Find(testChild.GetId()).GetName();
+
+    //   //Assert
+    //   Assert.AreEqual(secondName, result);
+    // }
 
     // [TestMethod]
     // public void GetEvents_ReturnsAllChildEvents_CategoryList()
@@ -252,24 +307,7 @@ namespace ChildDevelopment.Tests
     //   CollectionAssert.AreEqual(testList, result);
     // }
 
-    // [TestMethod]
-    // public void AddChildEvents_AddsChildEventsToChild_ChildEventsList()
-    // {
-    //   //Arrange
-    //   Child testChild = new Child("Nancy");
-    //   testChild.Save();
-    //   Event testEvent = new Event("Holds Head");
-    //   testEvent.Save();
 
-    //   //Act
-    //   testChild.AddEvent(testEvent);
-
-    //   List<Event> result = testChild.GetCategories();
-    //   List<Event> testList = new List<Event>{testCategory};
-
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
   }
 
 }

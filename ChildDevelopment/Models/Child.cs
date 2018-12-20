@@ -198,7 +198,7 @@ namespace ChildDevelopment.Models
         
 
 
-        //returns only a list of dates
+        //returns only a list of times (date differences) as integers
             public List<int> GetDates()
         {
             MySqlConnection conn = DB.Connection();
