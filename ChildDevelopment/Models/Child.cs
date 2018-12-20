@@ -185,7 +185,6 @@ namespace ChildDevelopment.Models
                 {
 
                     int newEventId = rdr.GetInt32(0);
-                    Console.WriteLine(newEventId);
                     event_ids.Add(newEventId);
                 }
                     conn.Close();
@@ -214,7 +213,6 @@ namespace ChildDevelopment.Models
                 DateTime newEvent = rdr.GetDateTime(0);
                 int difference = (int)Math.Round(((newEvent - _birthdate).TotalDays)/7);
                 events.Add(difference);
-                Console.WriteLine(difference);
             }
             conn.Close();
             if (conn != null)
