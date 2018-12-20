@@ -11,10 +11,24 @@
 
 
     function drawChart() {
-
+      var stringArray=["I HATE CSHARP!","hold_head",
+      "roll_over",
+      "first_teeth",
+      "sit",
+      "crawl",
+      "walk",
+      "first_words",
+      "self_feeding",
+      "make_believe",
+      "two_word_sentence",
+      "potty_trained",
+      "dressed_self",
+      "tell_story",
+      "read_write"]
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Events');
+      data.addColumn('string', 'Events');
       data.addColumn('number', 'Current Child');
+      data.addColumn('number', 'Average');
 
 
 

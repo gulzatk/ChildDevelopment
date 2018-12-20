@@ -19,8 +19,8 @@ namespace ChildDevelopment.Controllers
         {
             return View();
         }
-        
-        
+
+
         [HttpPost("/children")]
         public ActionResult Index(
         string name,
@@ -77,14 +77,13 @@ namespace ChildDevelopment.Controllers
                 child.AddChildEvents(i,events[i-1]);
               }
             }
- 
-        
             List<int> childEvents= child.GetEvents();
             List<int> childDates = child.GetDates();
+            List<int> childAverages = Event.GetAverages();
             string result = "[";
             for (int i=0; i<childEvents.Count; i+=1)
             {
-                result+= "[" + (childEvents[i]).ToString() + "," + childDates[i].ToString() + "]";
+                result+= "[stringArray[" + (childEvents[i]).ToString() + "]," + childDates[i].ToString() + "," + childAverages[i].ToString() +"]";
                 if (i<childEvents.Count-1)
                 {
                     result+= ",";
