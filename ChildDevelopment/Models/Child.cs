@@ -170,7 +170,7 @@ namespace ChildDevelopment.Models
             }
         }
 
-        //return only a list of events
+        //return only a list of event Ids
           public List<int> GetEvents()
         {
                  //get a list of event id's
@@ -196,6 +196,8 @@ namespace ChildDevelopment.Models
                 return event_ids;
         }
         
+
+
         //returns only a list of dates
             public List<int> GetDates()
         {

@@ -71,12 +71,13 @@ namespace ChildDevelopment.Controllers
               }
             }
  
+        
             List<int> childEvents= child.GetEvents();
             List<int> childDates = child.GetDates();
             string result = "[";
             for (int i=0; i<childEvents.Count; i+=1)
             {
-                result+= "[" + childEvents[i].ToString() + "," + childDates[i].ToString() + "]";
+                result+= "[" + (childEvents[i]).ToString() + "," + childDates[i].ToString() + "]";
                 if (i<childEvents.Count-1)
                 {
                     result+= ",";

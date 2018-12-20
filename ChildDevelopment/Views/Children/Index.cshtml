@@ -4,17 +4,17 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawChart);
+      
 
     function drawChart() {
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Events');
-      data.addColumn('number', 'Current child');
+      data.addColumn('number', 'Current Child');
+      
+      
 
-
-
-
-
+      
       data.addRows(@Model);
 
       var options = {
@@ -22,7 +22,7 @@
           title: 'Child Development Timeline',
           subtitle: 'in weeks'
         },
-        width: 900,
+        width: 1500,
         height: 500,
         axes: {
           x: {
@@ -30,6 +30,7 @@
           }
         }
       };
+
 
       var chart = new google.charts.Line(document.getElementById('line_top_x'));
 
