@@ -110,28 +110,28 @@ namespace ChildDevelopment.Models
                 int difference = (int)Math.Round(((newEvent - aPastDate).TotalDays)/7);
                 events.Add(difference);
 
-        //     }
-        //     conn.Close();
-        //     if (conn != null)
-        //     {
-        //         conn.Dispose();
-        //     }
-        //     return events;
-        // }
-        // public List<int> GetBirthdates()
-        // {
-        //     MySqlConnection conn = DB.Connection();
-        //     conn.Open();
-        //     MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-        //     cmd.CommandText = @"SELECT child_id FROM child_events WHERE event_id = @eventId;";
-        //     cmd.Parameters.AddWithValue("@eventId", this._id);
-        //     MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-        //     List<int> childIds = new List<int> { };
-        //     while (rdr.Read())
-        //     {
+            }
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+            return events;
+        }
+        public List<int> GetBirthdates()
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"SELECT child_id FROM child_events WHERE event_id = @eventId;";
+            cmd.Parameters.AddWithValue("@eventId", this._id);
+            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+            List<int> childIds = new List<int> { };
+            while (rdr.Read())
+            {
 
-        //         int newChildId = rdr.GetInt32(0);
-        //         childIds.Add(newChildId);
+                int newChildId = rdr.GetInt32(0);
+                childIds.Add(newChildId);
 
             }
             conn.Close();
