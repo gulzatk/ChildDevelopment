@@ -1,0 +1,93 @@
+@using ChildDevelopment.Models;
+
+@if(@Model.GetName() == "none")
+{
+    <h2>This user name could not be found. Click <a href="/"> here </a> to try again. </h2>
+}
+else if (@Model.GetPassword() == "none")
+{
+    <h2>Wrong password, Click <a href="/"> here </a> to try again</h2>
+}
+
+else
+{
+    
+
+    <h2>Thank you for logging in @Model.GetName().</h2>
+   <div class="container">
+<h2>Add a new child</h2>
+<form action = "/children" method = "post">
+
+    <label for = "name">Name:</label>
+    <input type = "text" name = "name"><br><br>
+
+<label for="gender">Gender:</label>
+  <select id="gender" name="gender">
+    <option value=false>boy</option>
+    <option value=true>girl</option>
+</select><br><br>
+
+    <label for = "height">Height(in inches):</label>
+    <input type = "num" name = "height"><br><br>
+
+    <label for = "weight">Weight(in ounces):</label>
+    <input type = "num" name = "weight"><br><br>
+
+<label for="breastfeeding">Was the child breastfed?:</label>
+  <select id="breastfeeding" name="breastfeeding">
+    <option value=true>Yes</option>    
+    <option value=false>No</option>
+
+</select><br><br>
+
+    <label for = "birthdate">Birthdate:</label>
+    <input type = "date" name = "birthdate"><br><br>
+
+    <label for = "hold_head">When your did child holds his/her head?</label>
+    <input type = "date" name = "hold_head"><br><br>
+
+
+    <label for = "roll_over">When did your child rolls over?</label>
+    <input type = "date" name = "roll_over"><br><br>
+
+    <label for = "first_teeth">When did first teeth grown?</label>
+    <input type = "date" name = "first_teeth"><br><br>
+
+    <label for = "sit">When did your child sit?</label>
+    <input type = "date" name = "sit"><br><br>
+
+    <label for = "crowl">When did your child crowl for the first time?</label>
+    <input type = "date" name = "crowl"><br><br>
+
+    <label for = "walk">When did your child walk?</label>
+    <input type = "date" name = "walk"><br><br>
+
+    <label for = "first_words">When did your child say the firs word?</label>
+    <input type = "date" name = "first_words"><br><br>
+
+    <label for = "hold_head">When your child holds his/her head?</label>
+    <input type = "date" name = "hold_head"><br><br>
+
+    <label for = "hold_head">When your child holds his/her head?</label>
+    <input type = "date" name = "hold_head"><br><br>
+
+    <label for = "hold_head">When your child holds his/her head?</label>
+    <input type = "date" name = "hold_head"><br><br>
+
+    <label for = "hold_head">When your child holds his/her head?</label>
+    <input type = "date" name = "hold_head"><br><br>
+
+    <label for = "hold_head">When your child holds his/her head?</label>
+    <input type = "date" name = "hold_head"><br><br>
+
+    <label for = "hold_head">When your child holds his/her head?</label>
+    <input type = "date" name = "hold_head"><br><br>
+
+    <label for = "hold_head">When your child holds his/her head?</label>
+    <input type = "date" name = "hold_head"><br><br>
+
+
+    <button class="btn btn-sm btn-primary" type = "submit">Add your child</button>
+</form>
+</div>
+}
