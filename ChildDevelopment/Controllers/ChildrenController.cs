@@ -62,29 +62,27 @@
 //             Child child = new Child(name,gender,weight,height,birth_date,breastfeeding);
 //             child.Save();
 
-//             int childId = child.GetId();
-//             for (int i=1;i<=14;i++)
-//             {
-//               if (events[i-1]!=DateTime.MinValue)
-//               {
-//                 child.AddChildEvents(i,events[i-1]);
-//               }
-//             }
-
-
-//             List<int> childEvents= child.GetEvents();
-//             List<int> childDates = child.GetDates();
-//             List<int> childAverages = Event.GetAverages();
-//             string result = "[";
-//             for (int i=0; i<childEvents.Count; i+=1)
-//             {
-//                 result+= "[stringArray[" + (childEvents[i]).ToString() + "]," + childDates[i].ToString() + "," + childAverages[i].ToString() +"]";
-//                 if (i<childEvents.Count-1)
-//                 {
-//                     result+= ",";
-//                 }
-//             }
-//             result += "]";
+            int childId = child.GetId();
+            for (int i=1;i<=14;i++)
+            {
+              if (events[i-1]!=DateTime.MinValue)
+              {
+                child.AddChildEvents(i,events[i-1]);
+              }
+            }
+            List<int> childEvents= child.GetEvents();
+            List<int> childDates = child.GetDates();
+            List<int> childAverages = Event.GetAverages();
+            string result = "[";
+            for (int i=0; i<childEvents.Count; i+=1)
+            {
+                result+= "[stringArray[" + (childEvents[i]).ToString() + "]," + childDates[i].ToString() + "," + childAverages[i].ToString() +"]";
+                if (i<childEvents.Count-1)
+                {
+                    result+= ",";
+                }
+            }
+            result += "]";
 
 //             return View("Index",result);
 //         }

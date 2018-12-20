@@ -286,28 +286,5 @@ namespace ChildDevelopment.Tests
     //   //Assert
     //   Assert.AreEqual(secondName, result);
     // }
-
-    // [TestMethod]
-    // public void GetEvents_ReturnsAllChildEvents_CategoryList()
-    // {
-    //   //Arrange
-    //   Child testChild = new Child("Nancy");
-    //   testChild.Save();
-    //   Event testEvent1 = new Event("Holds Head");
-    //   testEvent1.Save();
-    //   Event testEvent2 = new Event("Crawls");
-    //   testEvent2.Save();
-
-    //   //Act
-    //   testChild.AddChildEvent(testEvent1);
-    //   List<Event> result = testChild.GetEvents();
-    //   List<Event> testList = new List<Event> {testEvent1};
-
-    //   //Assert
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-
-
   }
-
 }
