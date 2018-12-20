@@ -70,8 +70,6 @@ namespace ChildDevelopment.Controllers
                 child.AddChildEvents(i,events[i-1]);
               }
             }
-
-
             List<int> childEvents= child.GetEvents();
             List<int> childDates = child.GetDates();
             List<int> childAverages = Event.GetAverages();
