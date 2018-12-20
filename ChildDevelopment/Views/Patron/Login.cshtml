@@ -2,12 +2,9 @@
 
 @if(@Model.GetName() == "none")
 {
-    <h2>This user name could not be found. Click <a href="/"> here </a> to try again. </h2>
+    <h2>This user name or password could not be found. Click <a href="/"> here </a> to try again. </h2>
 }
-else if (@Model.GetPassword() == "none")
-{
-    <h2>Wrong password, Click <a href="/"> here </a> to try again</h2>
-}
+
 
 else
 {
