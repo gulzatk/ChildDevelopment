@@ -42,7 +42,7 @@ namespace ChildDevelopment.Controllers
                 return RedirectToAction("Exist");
             }
  
-            return View(newPatron);
+
 
         } 
 

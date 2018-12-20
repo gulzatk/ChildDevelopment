@@ -19,6 +19,8 @@ namespace ChildDevelopment.Controllers
         {
             return View();
         }
+        
+        
         [HttpPost("/children")]
         public ActionResult Index(
         string name,
@@ -59,6 +61,8 @@ namespace ChildDevelopment.Controllers
             read_write};
             Child child = new Child(name,gender,weight,height,birth_date,breastfeeding);
             child.Save();
+
+            int childId = child.GetId();
             for (int i=1;i<=14;i++)
             {
               if (events[i-1]!=DateTime.MinValue)
@@ -66,8 +70,22 @@ namespace ChildDevelopment.Controllers
                 child.AddChildEvents(i,events[i-1]);
               }
             }
-            Console.WriteLine(roll_over-birth_date);
-            return View();
+ 
+        
+            List<int> childEvents= child.GetEvents();
+            List<int> childDates = child.GetDates();
+            string result = "[";
+            for (int i=0; i<childEvents.Count; i+=1)
+            {
+                result+= "[" + (childEvents[i]).ToString() + "," + childDates[i].ToString() + "]";
+                if (i<childEvents.Count-1)
+                {
+                    result+= ",";
+                }
+            }
+            result += "]";
+
+            return View("Index",result);
         }
 
     }

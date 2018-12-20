@@ -4,36 +4,25 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawChart);
+      
 
     function drawChart() {
 
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Weeks');
-      data.addColumn('number', 'Current');
+      data.addColumn('number', 'Events');
+      data.addColumn('number', 'Current Child');
+      
+      
 
-      data.addRows([
-        [1,  5],
-        [2,  6],
-        [3,  8],
-        [4,  11],
-        [5,  3],
-        [6,   1],
-        [7,   8],
-        [8,  5],
-        [9,  5],
-        [10, 3],
-        [11,  2],
-        [12,  12],
-        [13,  9],
-        [14,  5]
-      ]);
+      
+      data.addRows(@Model);
 
       var options = {
         chart: {
           title: 'Child Development Timeline',
           subtitle: 'in weeks'
         },
-        width: 900,
+        width: 1500,
         height: 500,
         axes: {
           x: {
@@ -41,6 +30,7 @@
           }
         }
       };
+
 
       var chart = new google.charts.Line(document.getElementById('line_top_x'));
 
