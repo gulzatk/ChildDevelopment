@@ -22,3 +22,4 @@ namespace ChildDevelopment.Tests
       Assert.IsInstanceOfType(indexView, typeof(ViewResult));
     }
   }
+}

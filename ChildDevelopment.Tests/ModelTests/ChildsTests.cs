@@ -24,7 +24,7 @@ namespace ChildDevelopment.Tests
     [TestMethod]
     public void ChildConstructor_CreatesInstanceOfChild_Child()
     {
-      Child newChild = new Child("test");
+      Child newChild = new Child("Nancy", false, 8, 20, default(DateTime), false);
       Assert.AreEqual(typeof(Child), newChild.GetType());
     }
 
@@ -33,7 +33,7 @@ namespace ChildDevelopment.Tests
     {
       //Arrange
       string Name = "Nancy";
-      Child newChild = new Child(Name);
+      Child newChild = new Child(Name, false, 8, 20, default(DateTime), false);
 
       //Act
       string result = newChild.GetName();
@@ -47,7 +47,7 @@ namespace ChildDevelopment.Tests
     {
       //Arrange
       bool gender = false;
-      Child newChild = new Child("Nancy", gender);
+      Child newChild = new Child("Nancy", gender, 8, 20, default(DateTime), false);
 
       //Act
       bool result = newChild.GetGender();
@@ -61,7 +61,7 @@ namespace ChildDevelopment.Tests
     {
       //Arrange
       int Weight = 8;
-      Child newChild = new Child("Nancy", false, Weight);
+      Child newChild = new Child("Nancy", false, Weight, 20, default(DateTime), false);
 
       //Act
       int result = newChild.GetWeight();
@@ -75,7 +75,7 @@ namespace ChildDevelopment.Tests
     {
       //Arrange
       int Height = 20;
-      Child newChild = new Child("Nancy", false, 8, Height);
+      Child newChild = new Child("Nancy", false, 8, Height, default(DateTime), false);
 
       //Act
       int result = newChild.GetHeight();
@@ -89,7 +89,7 @@ namespace ChildDevelopment.Tests
     {
       //Arrange
       DateTime Birthdate = default(DateTime);
-      Child newChild = new Child("Nancy", false, 8, 20, Birthdate);
+      Child newChild = new Child("Nancy", false, 8, 20, Birthdate, false);
 
       //Act
       DateTime result = newChild.GetBirthdate();
@@ -146,9 +146,9 @@ namespace ChildDevelopment.Tests
       //Arrange
       string name01 = "Nancy";
       string name02 = "Jackson";
-      Child newChild1 = new Child(name01);
+      Child newChild1 = new Child(name01, false, 8, 20, default(DateTime), false);
       newChild1.Save();
-      Child newChild2 = new Child(name02);
+      Child newChild2 = new Child(name02, false, 8, 20, default(DateTime), false);
       newChild2.Save();
       List<Child> newList = new List<Child> { newChild1, newChild2 };
 
@@ -163,7 +163,7 @@ namespace ChildDevelopment.Tests
     public void Find_ReturnsCorrectChildFromDatabase_Child()
     {
       //Arrange
-      Child testChild = new Child("Nancy");
+      Child testChild = new Child("nancy", false, 8, 20, default(DateTime), false);
       testChild.Save();
 
       //Act
@@ -177,8 +177,8 @@ namespace ChildDevelopment.Tests
     public void Equals_ReturnsTrueIfNamesAreTheSame_Child()
     {
       // Arrange, Act
-      Child firstChild = new Child("Nancy");
-      Child secondChild = new Child("Nancy");
+      Child firstChild = new Child("nancy", false, 8, 20, default(DateTime), false);
+      Child secondChild = new Child("nancy", false, 8, 20, default(DateTime), false);
 
       // Assert
       Assert.AreEqual(firstChild, secondChild);
@@ -203,7 +203,7 @@ namespace ChildDevelopment.Tests
     public void Save_AssignsIdToObject_Id()
     {
       //Arrange
-      Child testChild = new Child("Nancy");
+      Child testChild = new Child("nancy", false, 8, 20, default(DateTime), false);
 
       //Act
       testChild.Save();
@@ -220,7 +220,7 @@ namespace ChildDevelopment.Tests
     public void AddChildEvents_AddsChildEventsToChild_ChildEventsList()
     {
       //Arrange
-      Child testChild = new Child("Nancy");
+      Child testChild = new Child("nancy", false, 8, 20, default(DateTime), false);
       testChild.Save();
       DateTime testDateTime = default(DateTime);
 
@@ -241,7 +241,7 @@ namespace ChildDevelopment.Tests
     public void GetEvents_GetsEventsFromChildEvents_ChildEventsList()
     {
       //Arrange
-      Child testChild = new Child("Nancy");
+      Child testChild = new Child("nancy", false, 8, 20, default(DateTime), false);
       testChild.Save();
       DateTime testDateTime = default(DateTime);
 

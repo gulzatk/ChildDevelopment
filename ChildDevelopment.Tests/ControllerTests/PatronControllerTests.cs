@@ -17,7 +17,7 @@ namespace ChildDevelopment.Tests
             PatronController controller = new PatronController();
 
             //Act
-            IActionResult view = controller.Login("name", "123", 3);
+            IActionResult view = controller.Login("name", "123");
 
             //Assert
             Assert.IsInstanceOfType(view, typeof(ViewResult));
@@ -49,18 +49,6 @@ namespace ChildDevelopment.Tests
             Assert.IsInstanceOfType(view, typeof(ViewResult));
         }
 
-        [TestMethod]
-        public void Login_ReturnsCorrectActionType_ViewResult()
-        {
-            //Arrange
-            PatronController controller = new PatronController();
-
-            //Act
-            IActionResult view = controller.Login("name", "123", 3);
-
-            //Assert
-            Assert.IsInstanceOfType(view, typeof(ViewResult));
-        }
 
         [TestMethod]
         public void New_ReturnsCorrectActionType_ViewResult()
