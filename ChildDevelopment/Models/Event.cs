@@ -93,23 +93,6 @@ namespace ChildDevelopment.Models
             return foundEvent;
         }
 
-<<<<<<< HEAD
-        //     public List<int> GetDates()
-        // {
-        //     MySqlConnection conn = DB.Connection();
-        //     conn.Open();
-        //     MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-        //     cmd.CommandText = @"SELECT time FROM child_events WHERE event_id = @eventId;";
-        //     cmd.Parameters.AddWithValue("@eventId", this._id);
-        //     MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-        //     List<int> events = new List<int> { };
-        //     while (rdr.Read())
-        //     {
-
-        //         DateTime newEvent = rdr.GetDateTime(0);
-        //         int weeks = (int)Math.Round(newEvent.Ticks/6048000000000);
-        //         events.Add(weeks);
-=======
             public List<int> GetDates()
         {
             MySqlConnection conn = DB.Connection();
@@ -126,7 +109,6 @@ namespace ChildDevelopment.Models
                 DateTime newEvent = rdr.GetDateTime(0);
                 int difference = (int)Math.Round(((newEvent - aPastDate).TotalDays)/7);
                 events.Add(difference);
->>>>>>> origin/kaveh
 
         //     }
         //     conn.Close();
@@ -151,41 +133,6 @@ namespace ChildDevelopment.Models
         //         int newChildId = rdr.GetInt32(0);
         //         childIds.Add(newChildId);
 
-<<<<<<< HEAD
-        //     }
-        //     conn.Close();
-        //     if (conn != null)
-        //     {
-        //         conn.Dispose();
-        //     }
-        //     List<int> birthdates = new List<int>();
-        //     foreach (var childId in childIds)
-        //     {
-        //       Child child= Child.Find(childId);
-        //       int weeks = (int)Math.Round(child.GetBirthdate().Ticks/6048000000000);
-        //       birthdates.Add(weeks);
-        //     }
-        //     return birthdates;
-        // }
-        // public static List<int> GetAverages()
-        // {
-        //   List<int> averages = new List<int>();
-        //   List <Event> events = Event.GetAll();
-        //   foreach (var newEvent in events)
-        //   {
-        //     List<int> eventDates= newEvent.GetDates();
-        //     List<int> eventBirthdates = newEvent.GetBirthdates();
-        //     int sum = 0;
-
-        //     for (int i =0;i<eventDates.Count;i++)
-        //     {
-        //       sum+=eventDates[i]-eventBirthdates[i];
-        //     }
-        //     averages.Add((int)Math.Round(sum/eventDates.Count));
-        //   }
-        //   return averages;
-        // }
-=======
             }
             conn.Close();
             if (conn != null)
@@ -225,7 +172,6 @@ namespace ChildDevelopment.Models
           }
           return averages;
         }
->>>>>>> origin/kaveh
 
         //  public static void ClearAll()
         // {
