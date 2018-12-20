@@ -15,7 +15,7 @@ namespace ChildDevelopment.Models
         private DateTime _birthdate;
         private int _id;
 
-        public Child(string name, bool gender, int weight, int height, DateTime birthdate, bool breastfeeding, int id = 0)
+        public Child(string name, bool gender=false, int weight=0, int height=0, DateTime birthdate=01/01/2001, bool breastfeeding=false, int id = 0)
         {
             _name = name;
             _gender = gender;
@@ -148,7 +148,7 @@ namespace ChildDevelopment.Models
             {
                 conn.Dispose();
             }
-            return newChild;
+            return newChild; 
         }
 
         public void AddChildEvents(int eventId, DateTime time)
