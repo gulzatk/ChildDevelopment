@@ -5,38 +5,32 @@
 
 <div class="controller text-center">
 
-<h1>@Model.GetName() you successfully created your new account</h1>
 
-
-<hr>
-<h2>Create a new data.</h2>
+<h2>Please update your data.</h2>
 <form action = "/children" method = "post">
-
-
-    <label for = "name">Name:</label>
-    <input type = "text" name = "name"><br><br>
+<label for = "name">Name:</label>
+<input type = "text" name = "name" required value='@Model["child"].GetName()'><br><br>
 
 <label for="gender">Gender:</label>
-  <select id="gender" name="gender">
-    <option value=false>boy</option>
-    <option value=true>girl</option>
+<select id="gender" name="gender" required  value='@Model["child"].GetGender()'>
+<option value=false>boy</option>
+<option value=true>girl</option>
 </select><br><br>
 
 <label for = "weight">Weight(in ounces):</label>
-<input type = "num" name = "weight"><br><br>
+<input type = "num" name = "weight" required value='@Model["child"].GetWeight()'><br><br>
 
 <label for = "height">Height(in inches):</label>
-<input type = "num" name = "height"><br><br>
+<input type = "num" name = "height" required value='@Model["child"].GetHeight()'><br><br>
 
 <label for = "birth_date">birth_date:</label>
-<input type = "date" name = "birth_date"><br><br>
-<input type = "hidden" name = "patron_name" value = @Model.GetName()>
+<input type = "date" name = "birth_date" required value='@Model["child"].GetBirthdate()'><br><br>
 
 
 <label for="breastfeeding">Was the child breastfed?:</label>
-  <select id="breastfeeding" name="breastfeeding">
-    <option value=true>Yes</option>
-    <option value=false>No</option>
+<select id="breastfeeding" name="breastfeeding" required  value='@Model["child"].GetBreastfeeding()'>
+<option value=true>Yes</option>
+<option value=false>No</option>
 </select><br><br>
 <hr>
 <div class="row">

@@ -537,6 +537,11 @@ ALTER TABLE `child_events`
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
+  -- Indexes for table `events`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`username`);
+
 --
 -- Indexes for table `login`
 --

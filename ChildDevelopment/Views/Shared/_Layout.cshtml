@@ -10,8 +10,13 @@
   </head>
   <body>
     <div class="nav">
-      <a href="/children" class="btn btn-primary">Show all children</a>
-      <a href="/children/new" class="btn btn-warning">Create new child</a>      
+      <a href="/" class="btn btn-info">Home</a>
+      <div class="dropdown">
+      <span class="btn btn-danger">Settings</span>
+        <div class="dropdown-content">
+        <a href="/">Sign Out</a>
+        </div>
+      </div>
     </div>
     @RenderBody()
   </body>

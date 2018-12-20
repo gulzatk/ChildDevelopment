@@ -9,9 +9,9 @@ namespace ChildDevelopment.Controllers
     {
 
         [HttpGet("/patrons/login")]
-        public ActionResult Login(string name, string password, int childId)
+        public ActionResult Login(string name, string password)
         {
-        Patron newPatron = Patron.FindByName(name, password, childId);
+        Patron newPatron = Patron.FindByName(name, password);
         return View(newPatron);
         }
 
@@ -26,7 +26,7 @@ namespace ChildDevelopment.Controllers
         {
             return View();
         }
-        
+
         [HttpPost("/patrons/login")]
         public ActionResult New(string name, string password, int childId)
         {
@@ -41,10 +41,10 @@ namespace ChildDevelopment.Controllers
             {
                 return RedirectToAction("Exist");
             }
- 
 
 
-        } 
+
+        }
 
 
     }
