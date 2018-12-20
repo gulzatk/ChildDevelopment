@@ -1,0 +1,14 @@
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.deps.json
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.runtimeconfig.json
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.runtimeconfig.dev.json
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.csprojResolveAssemblyReference.cache
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.AssemblyInfo.cs
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.dll
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.pdb
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.dll
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.pdb
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.dll
+/Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.pdb

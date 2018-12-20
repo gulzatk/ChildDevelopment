@@ -13,12 +13,12 @@ namespace ChildDevelopment.Tests
     public void Dispose()
     {
       Child.ClearAll();
-      Event.ClearAll();
+      // Event.ClearAll();
     }
 
     public ChildTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=child_database_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=child_development_test;";
     }
 
     [TestMethod]
@@ -88,7 +88,7 @@ namespace ChildDevelopment.Tests
     public void GetBirthdate_ReturnsBirthdate_DateTime()
     {
       //Arrange
-      DateTime Birthdate = 10/10/2000;
+      DateTime Birthdate = default(DateTime);
       Child newChild = new Child("Nancy", false, 8, 20, Birthdate);
 
       //Act
@@ -103,7 +103,7 @@ namespace ChildDevelopment.Tests
     {
       //Arrange
       bool Breastfeeding = false;
-      Child newChild = new Child("Nancy", false, 8, 20, 10/10/2010, Breastfeeding);
+      Child newChild = new Child("Nancy", false, 8, 20, default(DateTime), Breastfeeding);
 
       //Act
       bool result = newChild.GetBreastfeeding();
@@ -117,7 +117,7 @@ namespace ChildDevelopment.Tests
     {
       //Arrange
       int Id = 7;
-      Child newChild = new Child("Nancy", false, 8, 20, 10/10/2010, false, Id);
+      Child newChild = new Child("Nancy", false, 8, 20, default(DateTime), false, Id);
 
       //Act
       int result = newChild.GetId();
@@ -188,7 +188,7 @@ namespace ChildDevelopment.Tests
     public void Save_SavesToDatabase_ChildList()
     {
       //Arrange
-      Child newChild = new Child("Nancy", false, 8, 20, 10/10/2010, false, 7);
+      Child newChild = new Child("Nancy", false, 8, 20, default(DateTime), false, 7);
 
       //Act
       newChild.Save();
@@ -220,12 +220,12 @@ namespace ChildDevelopment.Tests
     public void Edit_UpdatesChildInDatabase_String()
     {
       //Arrange
-      Child testChild = new Child("Nancy");
+      Child testChild = new Child("Nancy", false, 8, 20, default(DateTime), false);
       testChild.Save();
       string secondName = "Rover";
 
       //Act
-      testChild.Edit(secondName, false, 8, 20, 10/10/2010, false);
+      testChild.Edit(secondName, false, 8, 20, default(DateTime), false);
       string result = Child.Find(testChild.GetId()).GetName();
 
       //Assert

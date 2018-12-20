@@ -15,7 +15,7 @@ namespace ChildDevelopment.Models
         private DateTime _birthdate;
         private int _id;
 
-        public Child(string name, bool gender=false, int weight=0, int height=0, DateTime birthdate=01/01/2001, bool breastfeeding=false, int id = 0)
+        public Child(string name, bool gender=false, int weight=0, int height=0, DateTime birthdate=default(DateTime), bool breastfeeding=false, int id = 0)
         {
             _name = name;
             _gender = gender;
