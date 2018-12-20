@@ -1,85 +1,88 @@
+@using ChildDevelopment.Models;
 @{
   Layout = "_Layout";
 }
 
-<div class="container text-center">
-<h2>Modify child's data.</h2>
-<form action = "/children" method = "post"></form>
+<div class="controller text-center">
 
-    <label for = "name">Name:</label>
-    <input type = "text" name = "name"><br><br>
+
+<h2>Please update your data.</h2>
+<form action = "/children" method = "post">
+<label for = "name">Name:</label>
+<input type = "text" name = "name" required value='@Model["child"].GetName()'><br><br>
 
 <label for="gender">Gender:</label>
-  <select id="gender" name="gender">
-    <option value=false>boy</option>
-    <option value=true>girl</option>
+<select id="gender" name="gender" required  value='@Model["child"].GetGender()'>
+<option value=false>boy</option>
+<option value=true>girl</option>
 </select><br><br>
 
 <label for = "weight">Weight(in ounces):</label>
-<input type = "num" name = "weight"><br><br>
+<input type = "num" name = "weight" required value='@Model["child"].GetWeight()'><br><br>
 
 <label for = "height">Height(in inches):</label>
-<input type = "num" name = "height"><br><br>
+<input type = "num" name = "height" required value='@Model["child"].GetHeight()'><br><br>
 
 <label for = "birth_date">birth_date:</label>
-<input type = "date" name = "birth_date"><br><br>
+<input type = "date" name = "birth_date" required value='@Model["child"].GetBirthdate()'><br><br>
 
 
 <label for="breastfeeding">Was the child breastfed?:</label>
-  <select id="breastfeeding" name="breastfeeding">
-    <option value=true>Yes</option>
-    <option value=false>No</option>
+<select id="breastfeeding" name="breastfeeding" required  value='@Model["child"].GetBreastfeeding()'>
+<option value=true>Yes</option>
+<option value=false>No</option>
 </select><br><br>
 <hr>
- <div class="row">
-   <div class="col-md-6">
-        <label for = "hold_head">hold_head:</label>
-    <input type = "date" name = "hold_head"><br><br>
+<div class="row">
+  <div class="col-md-6">
+       <label for = "hold_head">When did your child hold her/his head?:</label>
+   <input type = "date" name = "hold_head"><br><br>
 
-    <label for = "roll_over">roll_over:</label>
-    <input type = "date" name = "roll_over"><br><br>
+   <label for = "roll_over">When did your child roll over?</label>
+   <input type = "date" name = "roll_over"><br><br>
 
-    <label for = "first_teeth">first_teeth:</label>
-    <input type = "date" name = "first_teeth"><br><br>
+   <label for = "first_teeth">When did your child's first tooth come out?</label>
+   <input type = "date" name = "first_teeth"><br><br>
 
-    <label for = "sit">sit:</label>
-    <input type = "date" name = "sit"><br><br>
+   <label for = "sit">When did your child sit?</label>
+   <input type = "date" name = "sit"><br><br>
 
-    <label for = "crawl">crawl:</label>
-    <input type = "date" name = "crawl"><br><br>
+   <label for = "crawl">When did your child crawl?</label>
+   <input type = "date" name = "crawl"><br><br>
 
-    <label for = "walk">walk:</label>
-    <input type = "date" name = "walk"><br><br>
+   <label for = "walk">When did your child walk?</label>
+   <input type = "date" name = "walk"><br><br>
 
-    <label for = "first_words">first_words:</label>
-    <input type = "date" name = "first_words"><br><br>
-   </div>
-   <div class="col-md-6">
+   <label for = "When did your child say her/him first word">first_words:</label>
+   <input type = "date" name = "first_words"><br><br>
+  </div>
+  <div class="col-md-6">
 
-    <label for = "self_feeding">self_feeding:</label>
-    <input type = "date" name = "self_feeding"><br><br>
+   <label for = "When did your child start feeding her/his self?">self_feeding:</label>
+   <input type = "date" name = "self_feeding"><br><br>
 
-    <label for = "make_believe">make_believe:</label>
-    <input type = "date" name = "make_believe"><br><br>
+   <label for = "When did your child start to make believe?">make_believe:</label>
+   <input type = "date" name = "make_believe"><br><br>
 
-    <label for = "two_word_sentence">two_word_sentence:</label>
-    <input type = "date" name = "two_word_sentence"><br><br>
+   <label for = "When did your child make two word sentence">two_word_sentence:</label>
+   <input type = "date" name = "two_word_sentence"><br><br>
 
-    <label for = "potty_trained">potty_trained:</label>
-    <input type = "date" name = "potty_trained"><br><br>
+   <label for = "When did your child potty train?">potty_trained:</label>
+   <input type = "date" name = "potty_trained"><br><br>
 
-    <label for = "dressed_self">dressed_self:</label>
-    <input type = "date" name = "dressed_self"><br><br>
+   <label for = "When did your child dressed her/him self?">dressed_self:</label>
+   <input type = "date" name = "dressed_self"><br><br>
 
-    <label for = "tell_story">tell_story:</label>
-    <input type = "date" name = "tell_story"><br><br>
+   <label for = "When did your child started to tell a story">tell_story:</label>
+   <input type = "date" name = "tell_story"><br><br>
 
-    <label for = "read_write">read_write:</label>
-    <input type = "date" name = "read_write"><br><br>
-   </div>
+   <label for = "When did your child learn to read & write">read_write:</label>
+   <input type = "date" name = "read_write"><br><br>
+  </div>
 
 
     <button class="btn btn-lg btn-primary" type = "submit">Update</button>
 </form>
 
+</div>
 </div>

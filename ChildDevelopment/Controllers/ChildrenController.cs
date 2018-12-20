@@ -43,7 +43,8 @@ namespace ChildDevelopment.Controllers
         DateTime dressed_self,
         DateTime tell_story,
         DateTime read_write,
-        string patron_name
+        string patron_name,
+        string patron_password
         )
         {
             DateTime[] events= new DateTime[]{hold_head,
@@ -62,11 +63,9 @@ namespace ChildDevelopment.Controllers
             read_write};
             Child child = new Child(name,gender,weight,height,birth_date,breastfeeding);
             child.Save();
-           
-            Console.WriteLine(patron_name);
 
             int childId = child.GetId();
-            Patron foundPatron = Patron.FindByName(patron_name);
+            Patron foundPatron = Patron.FindByName(patron_name, patron_password);
             foundPatron.EditByChildId(childId);
 
 
@@ -93,6 +92,25 @@ namespace ChildDevelopment.Controllers
 
             return View("Index",result);
         }
+
+        [HttpGet("/children/edit/{id}")]
+          public ActionResult Edit(int id)
+          {
+              Dictionary<string,object> model = new Dictionary <string,object>();
+              Child child = Child.Find(id);
+              List<int> childEvents = child.GetEvents();
+              model.Add("child", child);
+              model.Add("childEvents", childEvents);
+              return View(model);
+          }
+
+           [HttpPost("/children/{id}/edit")]
+          public ActionResult Update(string name, bool gender, int weight, int height, DateTime birthdate, bool breastfeeding, int id)
+          {
+              Child child = Child.Find(id);
+              child.Edit(name, gender, weight, height, birthdate, breastfeeding);
+              return View("Index", child);
+          }
 
     }
 }

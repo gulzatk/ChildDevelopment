@@ -12,54 +12,15 @@ else if (@Model.GetPassword() == "none")
 else
 {
 
-    <h2>Thank you for logging in @Model.GetName().</h2>
+    <h2>Thank you for logging in @Model.GetName(). <a href="/children/edit/@Model.GetChildId()">Click here </a> to update your child profile</h2>
+
 
     <html>
 <head>
     @{
   Layout = "_Layout";
 }
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['line']});
-      google.charts.setOnLoadCallback(drawChart);
-
-
-    function drawChart() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Events');
-      data.addColumn('number', 'Current Child');
-
-
-
-
-      data.addRows(@Model);
-
-      var options = {
-        chart: {
-          title: 'Child Development Timeline',
-          subtitle: 'in weeks'
-        },
-        width: 1500,
-        height: 500,
-        axes: {
-          x: {
-            0: {side: 'bottom'}
-          }
-        }
-      };
-
-
-      var chart = new google.charts.Line(document.getElementById('line_top_x'));
-
-      chart.draw(data, google.charts.Line.convertOptions(options));
-    }
-  </script>
 </head>
-<body>
-  <div id="line_top_x"></div>
-</body>
 </html>
 
 }

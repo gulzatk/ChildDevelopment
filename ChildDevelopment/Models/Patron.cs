@@ -66,15 +66,16 @@ namespace ChildDevelopment.Models
             return unique;
         }
 
-         public static Patron FindByName(string inputName)
+         public static Patron FindByName(string inputName, string inputPassword)
         {
             MySqlConnection conn = DB.Connection();
             conn.Open();
 
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM login WHERE username = @name";
+            cmd.CommandText = @"SELECT * FROM login WHERE username = @name AND password = @password;";
 
             cmd.Parameters.AddWithValue("@name", inputName);
+            cmd.Parameters.AddWithValue("@password", inputPassword);
             var rdr = cmd.ExecuteReader() as MySqlDataReader;
             string name = "none";
             string password = "none";

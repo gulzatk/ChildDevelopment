@@ -4,7 +4,7 @@
 	position: relative;
 	display: inline-block;
   }
-  
+
   .dropdown-content {
 	display: none;
 	position: absolute;
@@ -14,7 +14,7 @@
 	padding: 12px 16px;
 	z-index: 1;
   }
-  
+
   .dropdown:hover .dropdown-content {
 	display: block;
   }
@@ -32,11 +32,11 @@
 	text-decoration: none;
 	display: block;
   }
-  
+
   .dropdown:hover .dropdown-content {
 	display: block;
   }
-  
+
 
 /* basic elements */
 html {
@@ -67,6 +67,10 @@ h1 {
 }
 
 input {
+	font-size: 12px;
+}
+
+option {
 	font-size: 12px;
 }
 a:link {
