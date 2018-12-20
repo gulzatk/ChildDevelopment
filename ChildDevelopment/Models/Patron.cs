@@ -66,17 +66,15 @@ namespace ChildDevelopment.Models
             return unique;
         }
 
-         public static Patron FindByName(string inputName, string inputPassword, int inputChildId)
+         public static Patron FindByName(string inputName)
         {
             MySqlConnection conn = DB.Connection();
             conn.Open();
 
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM login WHERE username = @name AND password = @password;";
+            cmd.CommandText = @"SELECT * FROM login WHERE username = @name";
 
             cmd.Parameters.AddWithValue("@name", inputName);
-            cmd.Parameters.AddWithValue("@password", inputPassword);
-             cmd.Parameters.AddWithValue("@childId", inputChildId);
             var rdr = cmd.ExecuteReader() as MySqlDataReader;
             string name = "none";
             string password = "none";
@@ -147,17 +145,15 @@ namespace ChildDevelopment.Models
             return patron;
         }
 
-           public void Edit(string inputName, string inputPassword)
+           public void EditByChildId(int newChildId)
             {
                 MySqlConnection conn = DB.Connection();
                 conn.Open();
                 var cmd = conn.CreateCommand() as MySqlCommand;
-                cmd.CommandText = @"UPDATE login SET username = @inputName AND password = @inputPassword WHERE name = @searchName;";
-                cmd.Parameters.AddWithValue("@name", inputName);
-                cmd.Parameters.AddWithValue("@inputPassword", inputPassword);
+                cmd.CommandText = @"UPDATE login SET child_id = @childId WHERE username = @searchName;";
+                cmd.Parameters.AddWithValue("@childId", newChildId);
                 cmd.Parameters.AddWithValue("@searchName", this._name);
                 cmd.ExecuteNonQuery();
-                _name = inputName;
                 conn.Close();
                 if (conn != null)
                 {

@@ -26,7 +26,7 @@ Child Development Timeline website geared toward parents to learn their child's 
 
 ## Setup/Installation Requirements
 
-1. Clone this repository: https://github.com/gulzatk/ChildDevelopment.Solution.git
+1. Clone this repository: https://github.com/gulzatk/ChildDevelopment.git
 
 2. Create a database needed for this application.
   * CREATE DATABASE child_development;
@@ -49,7 +49,7 @@ If you have any questions or suggestions please feel free to email:
 *
 
 ## Technologies Used
-* Visual Studio Code
+* VS Code
 * C#
 * .NET Core
 * Google Chart

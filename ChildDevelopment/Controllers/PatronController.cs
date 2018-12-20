@@ -9,9 +9,9 @@ namespace ChildDevelopment.Controllers
     {
 
         [HttpGet("/patrons/login")]
-        public ActionResult Login(string name, string password, int childId)
+        public ActionResult Login(string name)
         {
-        Patron newPatron = Patron.FindByName(name, password, childId);
+        Patron newPatron = Patron.FindByName(name);
         return View(newPatron);
         }
 

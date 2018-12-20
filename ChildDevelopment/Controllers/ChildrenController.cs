@@ -42,7 +42,8 @@ namespace ChildDevelopment.Controllers
         DateTime potty_trained,
         DateTime dressed_self,
         DateTime tell_story,
-        DateTime read_write
+        DateTime read_write,
+        string patron_name
         )
         {
             DateTime[] events= new DateTime[]{hold_head,
@@ -61,8 +62,14 @@ namespace ChildDevelopment.Controllers
             read_write};
             Child child = new Child(name,gender,weight,height,birth_date,breastfeeding);
             child.Save();
+           
+            Console.WriteLine(patron_name);
 
             int childId = child.GetId();
+            Patron foundPatron = Patron.FindByName(patron_name);
+            foundPatron.EditByChildId(childId);
+
+
             for (int i=1;i<=14;i++)
             {
               if (events[i-1]!=DateTime.MinValue)
