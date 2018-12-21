@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/ChildDevelopment.Tests.csproj",
+  "TargetFramework": "netcoreapp1.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

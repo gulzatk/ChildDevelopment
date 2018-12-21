@@ -11,3 +11,17 @@
 /Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.pdb
 /Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.dll
 /Users/Guest/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.pdb
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.deps.json
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.runtimeconfig.json
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.runtimeconfig.dev.json
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.dll
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.Tests.pdb
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.dll
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/bin/Debug/netcoreapp1.1/ChildDevelopment.pdb
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.csproj.CoreCompileInputs.cache
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.AssemblyInfo.cs
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.dll
+/Users/stuartgill/Desktop/ChildDevelopment/ChildDevelopment.Tests/obj/Debug/netcoreapp1.1/ChildDevelopment.Tests.pdb
