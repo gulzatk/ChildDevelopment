@@ -2,22 +2,61 @@
 
 @if(@Model.GetName() == "none")
 {
-    <h2>This user name or password could not be found. Click <a href="/"> here </a> to try again. </h2>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ChildDevelopment</title>
+    <link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="~/js/scripts.js"></script>
+  </head>
+  <body>
+<div class="container text-center">
+<h1 class="account">This user name or password could not be found. Click <a href="/"><span class="register">here</span>  </a> to try again. </h1>
+<hr>
+
+
+
+<div class="license">
+<h3>This software is licensed under the MIT license & Epicodus Copyright (c) 2018 Gulzat, Glen, Stuart, Kaveh</h3>
+ 
+</div>
+</body>
+</html>
 }
 
 
 else
 {
 
-    <h2>Thank you for logging in @Model.GetName(). <a href="/children/edit/@Model.GetChildId()">Click here </a> to update your child profile</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ChildDevelopment</title>
+    <link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="~/js/scripts.js"></script>
+  </head>
+  <body>
+<div class="container text-center">
+<h1 class="account">Thank you for logging in @Model.GetName(). <a href="/children/edit/@Model.GetChildId()"> <span class="register">CLICK HERE</span></a> to update your child profile
+<hr>
 
 
-    <html>
-<head>
+
+<div class="license">
+<h3>This software is licensed under the MIT license & Epicodus Copyright (c) 2018 Gulzat, Glen, Stuart, Kaveh</h3>
+ 
+</div>
     @{
   Layout = "_Layout";
 }
-</head>
+</body>
 </html>
-
 }

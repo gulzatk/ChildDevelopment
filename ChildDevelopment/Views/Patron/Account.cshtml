@@ -10,26 +10,21 @@
   </head>
   <body>
 <div class="container text-center">
-<h1>Create a new account</h1>
+<h1 class="account">Create a new account</h1>
+<hr>
 
-<form action="/patrons/login" method="post">
-  <div class = "form-group row">
-      <div class="col col-md-3">
-        <label for="name">Enter a full name: </label>
-        <input class="form-control" id="name" name="name" type="text" required>
-      </div>
-      <div class="col col-md-3">
-        <label for="password">Password: </label>
-        <input class="form-control" id="password" name="password" type="password" required>
-      </div>
-  </div>
-
-  <div class = "form-group row">
-    <button class="btn btn-info btn-lg" type="submit">Submit</button>
-  </div>
+<form class="sign-up" action="/patrons/login" method="post">
+    <h1 class="sign-up-title"></h1>
+    <input type="text" class="sign-up-input" placeholder="Your Username?" autofocus  id="name" name="name">
+    <input id="password" type="password" class="sign-up-input" placeholder="Your Password?" id="password" name="password" >
+     <button class="sign-up-button" type="submit">Register</button>
+   <a href="/">Already have an Account?</a></strong></p>  	
 </form>
-
-<h4><a href="/">Back home</a></h4>
 </div>
-  </body>
+
+<div class="license">
+<h3>This software is licensed under the MIT license & Epicodus Copyright (c) 2018 Gulzat, Glen, Stuart, Kaveh</h3>
+</div>
+
+</body>
 </html>

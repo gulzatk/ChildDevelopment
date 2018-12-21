@@ -9,34 +9,38 @@
 
 
 <hr>
-<h2>Create a new data.</h2>
+@{
+  Layout = "_Layout";
+}
+
+<div class="container text-center">
+<h2>Fill out data form for Child Statistic.</h2>
 <form action = "/children" method = "post">
 
 
     <label for = "name">Name:</label>
-    <input type = "text" name = "name"><br><br>
+<input type = "text" name = "name" required value='@Model["child"].GetName()'><br><br>
 
 <label for="gender">Gender:</label>
-  <select id="gender" name="gender">
-    <option value=false>boy</option>
-    <option value=true>girl</option>
+<select id="gender" name="gender" required  value='@Model["child"].GetGender()'>
+<option value=false>boy</option>
+<option value=true>girl</option>
 </select><br><br>
 
 <label for = "weight">Weight(in ounces):</label>
-<input type = "num" name = "weight"><br><br>
+<input type = "num" name = "weight" required value='@Model["child"].GetWeight()'><br><br>
 
 <label for = "height">Height(in inches):</label>
-<input type = "num" name = "height"><br><br>
+<input type = "num" name = "height" required value='@Model["child"].GetHeight()'><br><br>
 
 <label for = "birth_date">birth_date:</label>
-<input type = "date" name = "birth_date"><br><br>
-<input type = "hidden" name = "patron_name" value = @Model.GetName()>
+<input type = "date" name = "birth_date" required value='@Model["child"].GetBirthdate()'><br><br>
 
 
 <label for="breastfeeding">Was the child breastfed?:</label>
-  <select id="breastfeeding" name="breastfeeding">
-    <option value=true>Yes</option>
-    <option value=false>No</option>
+<select id="breastfeeding" name="breastfeeding" required  value='@Model["child"].GetBreastfeeding()'>
+<option value=true>Yes</option>
+<option value=false>No</option>
 </select><br><br>
 <hr>
 <div class="row">
@@ -59,36 +63,34 @@
    <label for = "walk">When did your child walk?</label>
    <input type = "date" name = "walk"><br><br>
 
-   <label for = "When did your child say her/him first word">first_words:</label>
+   <label for = "When did your child say her/him first word">When did your child say her/him first word"</label>
    <input type = "date" name = "first_words"><br><br>
   </div>
   <div class="col-md-6">
 
-   <label for = "When did your child start feeding her/his self?">self_feeding:</label>
+   <label for = "When did your child start feeding her/his self?"> "When did your child start feeding her/his self?</label>
    <input type = "date" name = "self_feeding"><br><br>
 
-   <label for = "When did your child start to make believe?">make_believe:</label>
+   <label for = "When did your child start to make believe?">"When did your child start to make believe?</label>
    <input type = "date" name = "make_believe"><br><br>
 
-   <label for = "When did your child make two word sentence">two_word_sentence:</label>
+   <label for = "When did your child make two word sentence">When did your child make two word sentence?</label>
    <input type = "date" name = "two_word_sentence"><br><br>
 
-   <label for = "When did your child potty train?">potty_trained:</label>
+   <label for = "When did your child potty train?">When did your child potty train?</label>
    <input type = "date" name = "potty_trained"><br><br>
 
-   <label for = "When did your child dressed her/him self?">dressed_self:</label>
+   <label for = "When did your child dressed her/him self?">When did your child dressed her/him self?</label>
    <input type = "date" name = "dressed_self"><br><br>
 
-   <label for = "When did your child started to tell a story">tell_story:</label>
+   <label for = "When did your child started to tell a story">When did your child started to tell a story?</label>
    <input type = "date" name = "tell_story"><br><br>
 
-   <label for = "When did your child learn to read & write">read_write:</label>
+   <label for = "When did your child learn to read & write">When did your child learn to read & write?</label>
    <input type = "date" name = "read_write"><br><br>
   </div>
 
-
-    <button class="btn btn-lg btn-primary" type = "submit">Update</button>
+    <button class="btn btn-lg btn-primary" type = "submit">Create</button>
 </form>
 
-</div>
 </div>

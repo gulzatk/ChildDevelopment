@@ -11,5 +11,10 @@ namespace ChildDevelopment.Controllers
     {
       return View();
     }
+     [HttpGet("/about")]
+    public ActionResult About()
+    {
+      return View("about");
+    }
     }
 }

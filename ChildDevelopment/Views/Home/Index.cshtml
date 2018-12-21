@@ -10,31 +10,24 @@
   </head>
   <body>
 <div class="container text-center">
-<h1><img src="/img/hand.jpg" alt="baby">Child Development Timeline</h1>
+<h1> <img src="/img/sun.gif" alt="sun" height="300px" width="300px"><span class="title">Child MileStone</span></h1>
 <hr>
-<div>
-  <img src="/img/sun.gif">
+
+
+
+
+<form class="sign-up" action="/patrons/login" method="get">
+    <h1 class="sign-up-title"></h1>
+    <input type="text" class="sign-up-input" placeholder="Your Username?" autofocus  id="name" name="name">
+    <input id="password" type="password" class="sign-up-input" placeholder="Your Password?" id="password" name="password" >
+     <button class="sign-up-button" type="submit" formmethod="get">Login</button>
+   <a href="patrons/account">Register</a></strong></p>  	
+</form>
 </div>
 
-<form action="/patrons/login" method="get">
-  <div class = "form-group row">
-      <div class="col col-md-3">
-        <label for="name">Enter a full name: </label>
-        <input class="form-control" id="name" name="name" type="text" required>
-      </div>
-      <div class="col col-md-3">
-        <label for="password">Password: </label>
-        <input class="form-control" id="password" name="password" type="password" required>
-      </div>
-  </div>
-  
-    <button class="btn btn-info" type="submit" formmethod="get">Login</button>
-</form>
-    </div>
-    <div class="col-md-3">
-    <h3><a class="btn btn-primary" href="/patrons/account">Sign up</a></h3>
-    </div>
-  </div>
-  </div>
+<div class="license">
+<h3>This software is licensed under the MIT license & Epicodus Copyright (c) 2018 Gulzat, Glen, Stuart, Kaveh</h3>
+</div>
+
 </body>
 </html>
