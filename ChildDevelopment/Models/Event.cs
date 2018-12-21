@@ -85,14 +85,11 @@ namespace ChildDevelopment.Models
             cmd.Parameters.AddWithValue("@eventId", this._id);
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             List<int> events = new List<int> { };
-            DateTime aPastDate = new DateTime(2006, 1, 1);
+
             while (rdr.Read())
             {
-
-                DateTime newEvent = rdr.GetDateTime(0);
-                int difference = (int)Math.Round(((newEvent - aPastDate).TotalDays)/7);
-                events.Add(difference);
-
+                int eventTime = rdr.GetInt32(0);
+                events.Add(eventTime);
             }
             conn.Close();
             if (conn != null)
@@ -101,38 +98,7 @@ namespace ChildDevelopment.Models
             }
             return events;
         }
-        public List<int> GetBirthdates()
-        {
-            MySqlConnection conn = DB.Connection();
-            conn.Open();
-            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT child_id FROM child_events WHERE event_id = @eventId;";
-            cmd.Parameters.AddWithValue("@eventId", this._id);
-            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-            List<int> childIds = new List<int> { };
-            while (rdr.Read())
-            {
 
-                int newChildId = rdr.GetInt32(0);
-                childIds.Add(newChildId);
-
-            }
-            conn.Close();
-            if (conn != null)
-            {
-                conn.Dispose();
-            }
-            List<int> birthdates = new List<int>();
-            foreach (var childId in childIds)
-            {
-              Child child= Child.Find(childId);
-              DateTime aPastDate = new DateTime(2006, 1, 1);
-              int difference = (int)Math.Round(((child.GetBirthdate() - aPastDate).TotalDays)/7);
-              birthdates.Add(difference);
-
-            }
-            return birthdates;
-        }
         public static List<int> GetAverages()
         {
           List<int> averages = new List<int>();
@@ -140,18 +106,14 @@ namespace ChildDevelopment.Models
           foreach (var newEvent in events)
           {
             List<int> eventDates= newEvent.GetDates();
-            List<int> eventBirthdates = newEvent.GetBirthdates();
             int sum = 0;
-            for (int i =0;i<eventDates.Count;i++)
+            foreach (var eventDate in eventDates)
             {
-              sum+=eventDates[i];
-              sum-=eventBirthdates[i];
-
+              sum+=eventDate;
             }
-              decimal division = sum/eventDates.Count;
-              int average = Decimal.ToInt32(Math.Round(division));
-              averages.Add(average);
-
+            decimal division = sum/eventDates.Count;
+            int average = Decimal.ToInt32(Math.Round(division));
+            averages.Add(average);
           }
           return averages;
         }

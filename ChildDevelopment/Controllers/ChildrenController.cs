@@ -73,7 +73,8 @@ namespace ChildDevelopment.Controllers
             {
               if (events[i-1]!=DateTime.MinValue)
               {
-                child.AddChildEvents(i,events[i-1]);
+                int eventTime = (int)Math.Round(((events[i-1] - birth_date).TotalDays)/7);
+                child.AddChildEvents(i,eventTime);
               }
             }
             List<int> childEvents= child.GetEvents();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 21, 2018 at 03:08 AM
+-- Generation Time: Dec 21, 2018 at 07:43 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `child_development_test`
+-- Database: `child_development_tests`
 --
+CREATE DATABASE IF NOT EXISTS `child_development_tests` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `child_development_tests`;
 
 -- --------------------------------------------------------
 
@@ -46,7 +48,7 @@ CREATE TABLE `child_events` (
   `id` int(11) NOT NULL,
   `child_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
-  `time` date NOT NULL
+  `time` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -54,18 +56,18 @@ CREATE TABLE `child_events` (
 --
 
 INSERT INTO `child_events` (`id`, `child_id`, `event_id`, `time`) VALUES
-(1, 119, 2, '0001-01-01'),
-(2, 119, 4, '0001-01-01'),
-(3, 120, 2, '0001-01-01'),
-(4, 120, 4, '0001-01-01'),
-(5, 126, 2, '0001-01-01'),
-(6, 126, 4, '0001-01-01'),
-(7, 127, 2, '0001-01-01'),
-(8, 127, 4, '0001-01-01'),
-(9, 133, 2, '0001-01-01'),
-(10, 133, 4, '0001-01-01'),
-(11, 134, 2, '0001-01-01'),
-(12, 134, 4, '0001-01-01');
+(1, 119, 2, 10101),
+(2, 119, 4, 10101),
+(3, 120, 2, 10101),
+(4, 120, 4, 10101),
+(5, 126, 2, 10101),
+(6, 126, 4, 10101),
+(7, 127, 2, 10101),
+(8, 127, 4, 10101),
+(9, 133, 2, 10101),
+(10, 133, 4, 10101),
+(11, 134, 2, 10101),
+(12, 134, 4, 10101);
 
 -- --------------------------------------------------------
 

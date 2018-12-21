@@ -2,7 +2,7 @@
 
 #### C# Group Project for Epicodus, 12/20/2018
 
-### **By Kaveh, Stuard, Glen and Gulzat**
+### **By Kaveh, Stuart, Glen and Gulzat**
 
 ## Description
 Child Development Timeline website geared toward parents to learn their child's development timeline from birth to 5 years old. The user needs to create an account to login and fill the form statistic information about their child. The result shows in line chart and parent can compare the result with other kids result by choosing specific parts of the form. Also parent can modify child's information.
@@ -45,7 +45,7 @@ Child Development Timeline website geared toward parents to learn their child's 
 If you have any questions or suggestions please feel free to email:
 * gulzat.karimova@gmail.com
 * glen_sale@yahoo.com
-*
+* lcaveh@gmail.com
 *
 
 ## Technologies Used
@@ -62,4 +62,4 @@ If you have any questions or suggestions please feel free to email:
 
 ## License
 This software is licensed under the MIT license
-Copyright (c) 2018 (Gulzat Karimova)
+Copyright (c) 2018 (Gulzat Karimova, Kaveh Saleminejad, Glen Sale, Stuart)

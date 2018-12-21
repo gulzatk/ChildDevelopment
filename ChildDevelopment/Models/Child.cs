@@ -152,7 +152,7 @@ namespace ChildDevelopment.Models
             return newChild;
         }
 
-        public void AddChildEvents(int eventId, DateTime time)
+        public void AddChildEvents(int eventId, int time)
         {
             MySqlConnection conn = DB.Connection();
             conn.Open();
@@ -209,10 +209,8 @@ namespace ChildDevelopment.Models
             List<int> events = new List<int> { };
             while (rdr.Read())
             {
-
-                DateTime newEvent = rdr.GetDateTime(0);
-                int difference = (int)Math.Round(((newEvent - _birthdate).TotalDays)/7);
-                events.Add(difference);
+                int newEvent = rdr.GetInt32(0);
+                events.Add(newEvent);
             }
             conn.Close();
             if (conn != null)
