@@ -17,7 +17,7 @@ namespace ChildDevelopment.Tests
 
     public PatronTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=child_development_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=child_development_tests;";
     }
 
     [TestMethod]
@@ -143,22 +143,5 @@ namespace ChildDevelopment.Tests
       //Assert
       CollectionAssert.AreEqual(testList, result);
     }
-
-    // [TestMethod]
-    // public void Edit_UpdatesPatronInDatabase_String()
-    // {
-    //   //Arrange
-    //   Patron testPatron = new Patron("Gulzat", "123", 1);
-    //   testPatron.Save();
-    //   string newName = "Mow the lawn";
-    //   string newPassword = "123";
-
-    //   //Act
-    //   testPatron.Edit(newName, newPassword);
-    //   string result = testPatron.GetName();
-
-    //   //Assert
-    //   Assert.AreEqual(newName, result);
-    // }
   }
 }

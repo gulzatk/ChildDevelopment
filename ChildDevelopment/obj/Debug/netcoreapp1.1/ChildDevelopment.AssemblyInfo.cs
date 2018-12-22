@@ -7,10 +7,10 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("ChildDevelopment.Tests")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ChildDevelopment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("ChildDevelopment.Tests")]
-[assembly: System.Reflection.AssemblyTitleAttribute("ChildDevelopment.Tests")]
+[assembly: System.Reflection.AssemblyProductAttribute("ChildDevelopment")]
+[assembly: System.Reflection.AssemblyTitleAttribute("ChildDevelopment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

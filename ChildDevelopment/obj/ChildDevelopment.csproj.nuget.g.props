@@ -3,7 +3,7 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
-    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">/Users/kaveh/Desktop/Epicodus/C/ChildDevelopment/ChildDevelopment.Tests/obj/project.assets.json</ProjectAssetsFile>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">/Users/kaveh/Desktop/Epicodus/C/ChildDevelopment/ChildDevelopment/obj/project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/Users/kaveh/.nuget/packages/</NuGetPackageRoot>
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/Users/kaveh/.nuget/packages/</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
@@ -13,9 +13,6 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)mstest.testadapter/1.3.2/build/netcoreapp1.0/MSTest.TestAdapter.props" Condition="Exists('$(NuGetPackageRoot)mstest.testadapter/1.3.2/build/netcoreapp1.0/MSTest.TestAdapter.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.diasymreader.native/1.4.1/build/Microsoft.DiaSymReader.Native.props" Condition="Exists('$(NuGetPackageRoot)microsoft.diasymreader.native/1.4.1/build/Microsoft.DiaSymReader.Native.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.codecoverage/15.8.0/build/netstandard1.0/Microsoft.CodeCoverage.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codecoverage/15.8.0/build/netstandard1.0/Microsoft.CodeCoverage.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk/15.8.0/build/netcoreapp1.0/Microsoft.Net.Test.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk/15.8.0/build/netcoreapp1.0/Microsoft.Net.Test.Sdk.props')" />
   </ImportGroup>
 </Project>

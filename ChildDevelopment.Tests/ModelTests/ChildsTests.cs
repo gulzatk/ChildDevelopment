@@ -18,7 +18,7 @@ namespace ChildDevelopment.Tests
 
     public ChildTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=child_development_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=child_development_tests;";
     }
 
     [TestMethod]
@@ -222,7 +222,7 @@ namespace ChildDevelopment.Tests
       //Arrange
       Child testChild = new Child("nancy", false, 8, 20, default(DateTime), false);
       testChild.Save();
-      DateTime testDateTime = default(DateTime);
+      int testDateTime = 50;
 
 
       //Act
@@ -243,7 +243,7 @@ namespace ChildDevelopment.Tests
       //Arrange
       Child testChild = new Child("nancy", false, 8, 20, default(DateTime), false);
       testChild.Save();
-      DateTime testDateTime = default(DateTime);
+      int testDateTime = 50;
 
 
       //Act
